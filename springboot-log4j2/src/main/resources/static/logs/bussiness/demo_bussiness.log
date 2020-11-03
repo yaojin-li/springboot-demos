@@ -1,0 +1,5 @@
+2020-11-02 20:26:23.465 - INFO  [nio-8080-exec-1] c.e.d.c.Log4j2DemoController   : getBussinessLogger===日志测试
+2020-11-02 20:41:56.501 - INFO  [nio-8080-exec-1] c.e.d.c.Log4j2DemoController   : getBussinessLogger===日志测试
+2020-11-02 20:45:23.175 - INFO  [nio-8080-exec-1] c.e.d.c.Log4j2DemoController   : getBussinessLogger===普通日志测试
+2020-11-02 20:48:36.242 - INFO  [nio-8080-exec-1] c.e.d.c.Log4j2DemoController   : getBussinessLogger===普通日志测试
+2020-11-03 10:17:31.429 - INFO  [nio-8080-exec-1] c.e.d.c.Log4j2DemoController   : getBussinessLogger===普通日志测试

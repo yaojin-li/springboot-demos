@@ -7,4 +7,7 @@ SpringBoot 学习案例汇总。
 2. springboot-rediscluster
 
     _springboot 集成 redis 集群模式_
-   
+3. springboot-scheduler
+
+    _springboot 集成 scheduler 定时任务_
+    
