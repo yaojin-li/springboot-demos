@@ -1,117 +1,17 @@
-2020-11-02 20:26:10.952 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 11784 (E:\workspace\SpringDemo\springboot-log4j2\target\classes started by User in E:\workspace\SpringDemo)
-2020-11-02 20:26:10.972 - INFO  [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
-2020-11-02 20:26:13.361 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
-2020-11-02 20:26:13.407 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:26:13.409 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2020-11-02 20:26:13.444 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-02 20:26:13.447 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020-11-02 20:26:13.449 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020-11-02 20:26:13.449 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-11-02 20:26:13.449 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-11-02 20:26:14.588 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020-11-02 20:26:14.867 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2020-11-02 20:26:14.868 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3740 ms
-2020-11-02 20:26:15.202 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-02 20:26:15.540 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:26:15.620 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
-2020-11-02 20:26:15.653 - INFO  [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 5.613 seconds (JVM running for 7.89)
-2020-11-02 20:26:19.207 - INFO  [nio-8080-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-02 20:26:19.208 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2020-11-02 20:26:19.219 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 11 ms
-2020-11-02 20:36:09.624 - INFO  【main】 [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 19608 (E:\workspace\SpringDemo\springboot-log4j2\target\classes started by User in E:\workspace\SpringDemo)
-2020-11-02 20:36:09.666 - INFO  【main】 [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
-2020-11-02 20:36:11.698 - INFO  【main】 [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
-2020-11-02 20:36:11.746 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:36:11.748 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2020-11-02 20:36:11.749 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-02 20:36:11.753 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020-11-02 20:36:11.754 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020-11-02 20:36:11.755 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-11-02 20:36:11.756 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-11-02 20:36:12.890 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020-11-02 20:36:13.108 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2020-11-02 20:36:13.109 - INFO  【main】 [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3129 ms
-2020-11-02 20:36:13.460 - INFO  【main】 [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-02 20:36:13.792 - INFO  【main】 [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:36:13.851 - INFO  【main】 [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
-2020-11-02 20:36:13.880 - INFO  【main】 [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 5.386 seconds (JVM running for 7.608)
-2020-11-02 20:41:38.287 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 14208 (E:\workspace\SpringDemo\springboot-log4j2\target\classes started by User in E:\workspace\SpringDemo)
-2020-11-02 20:41:38.299 - INFO  [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
-2020-11-02 20:41:40.634 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
-2020-11-02 20:41:40.675 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:41:40.677 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2020-11-02 20:41:40.678 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-02 20:41:40.682 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020-11-02 20:41:40.682 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020-11-02 20:41:40.683 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-11-02 20:41:40.684 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-11-02 20:41:41.787 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020-11-02 20:41:41.978 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2020-11-02 20:41:41.978 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3482 ms
-2020-11-02 20:41:42.367 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-02 20:41:42.663 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:41:42.714 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
-2020-11-02 20:41:42.738 - INFO  [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 5.074 seconds (JVM running for 8.184)
-2020-11-02 20:41:56.394 - INFO  [nio-8080-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-02 20:41:56.395 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2020-11-02 20:41:56.418 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 23 ms
-2020-11-02 20:45:08.710 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 11620 (E:\workspace\SpringDemo\springboot-log4j2\target\classes started by User in E:\workspace\SpringDemo)
-2020-11-02 20:45:08.722 - INFO  [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
-2020-11-02 20:45:10.710 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
-2020-11-02 20:45:10.734 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:45:10.735 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2020-11-02 20:45:10.736 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-02 20:45:10.738 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020-11-02 20:45:10.739 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020-11-02 20:45:10.739 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-11-02 20:45:10.739 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-11-02 20:45:11.945 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020-11-02 20:45:12.234 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2020-11-02 20:45:12.235 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3363 ms
-2020-11-02 20:45:12.590 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-02 20:45:12.876 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:45:12.927 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
-2020-11-02 20:45:12.952 - INFO  [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 4.811 seconds (JVM running for 7.56)
-2020-11-02 20:45:23.097 - INFO  [nio-8080-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-02 20:45:23.097 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2020-11-02 20:45:23.106 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 9 ms
-2020-11-02 20:48:18.251 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 25108 (E:\workspace\SpringDemo\springboot-log4j2\target\classes started by User in E:\workspace\SpringDemo)
-2020-11-02 20:48:18.278 - INFO  [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
-2020-11-02 20:48:20.009 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
-2020-11-02 20:48:20.064 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:48:20.067 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2020-11-02 20:48:20.069 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-02 20:48:20.077 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020-11-02 20:48:20.078 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020-11-02 20:48:20.079 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-11-02 20:48:20.081 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-11-02 20:48:21.290 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020-11-02 20:48:21.556 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2020-11-02 20:48:21.558 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3080 ms
-2020-11-02 20:48:21.923 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-02 20:48:22.283 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
-2020-11-02 20:48:22.320 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
-2020-11-02 20:48:22.335 - INFO  [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 4.758 seconds (JVM running for 7.382)
-2020-11-02 20:48:36.131 - INFO  [nio-8080-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-02 20:48:36.132 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2020-11-02 20:48:36.155 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 21 ms
-2020-11-03 10:14:12.010 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 22644 (E:\workspace\springboot-demos\springboot-log4j2\target\classes started by User in E:\workspace\springboot-demos)
-2020-11-03 10:14:12.016 - INFO  [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
-2020-11-03 10:14:12.665 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
-2020-11-03 10:14:12.682 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
-2020-11-03 10:14:12.682 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
-2020-11-03 10:14:12.682 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
-2020-11-03 10:14:12.684 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
-2020-11-03 10:14:12.684 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
-2020-11-03 10:14:12.684 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
-2020-11-03 10:14:12.685 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
-2020-11-03 10:14:13.750 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
-2020-11-03 10:14:13.815 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
-2020-11-03 10:14:13.815 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1746 ms
-2020-11-03 10:14:13.919 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
-2020-11-03 10:14:14.004 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
-2020-11-03 10:14:14.019 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
-2020-11-03 10:14:14.026 - INFO  [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 2.263 seconds (JVM running for 3.577)
-2020-11-03 10:17:31.404 - INFO  [nio-8080-exec-1] o.a.j.l.DirectJDKLog           : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-11-03 10:17:31.404 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Initializing Servlet 'dispatcherServlet'
-2020-11-03 10:17:31.410 - INFO  [nio-8080-exec-1] o.s.w.s.FrameworkServlet       : Completed initialization in 4 ms
+2020-11-04 10:59:36.763 - INFO  [           main] o.s.b.StartupInfoLogger        : Starting DemoApplication on USER-LXJ with PID 17792 (E:\workspace\springboot-demos\springboot-log4j2\target\classes started by User in E:\workspace\springboot-demos)
+2020-11-04 10:59:36.777 - INFO  [           main] o.s.b.SpringApplication        : No active profile set, falling back to default profiles: default
+2020-11-04 10:59:37.433 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat initialized with port(s): 8080 (http)
+2020-11-04 10:59:37.444 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing ProtocolHandler ["http-nio-8080"]
+2020-11-04 10:59:37.445 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting service [Tomcat]
+2020-11-04 10:59:37.445 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting Servlet engine: [Apache Tomcat/9.0.39]
+2020-11-04 10:59:37.446 - INFO  [           main] o.a.j.l.DirectJDKLog           : An older version [1.2.16] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2020-11-04 10:59:37.446 - INFO  [           main] o.a.j.l.DirectJDKLog           : Loaded Apache Tomcat Native library [1.2.16] using APR version [1.6.3].
+2020-11-04 10:59:37.446 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-11-04 10:59:37.446 - INFO  [           main] o.a.j.l.DirectJDKLog           : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-11-04 10:59:38.497 - INFO  [           main] o.a.j.l.DirectJDKLog           : OpenSSL successfully initialized [OpenSSL 1.0.2m  2 Nov 2017]
+2020-11-04 10:59:38.563 - INFO  [           main] o.a.j.l.DirectJDKLog           : Initializing Spring embedded WebApplicationContext
+2020-11-04 10:59:38.563 - INFO  [           main] letWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1753 ms
+2020-11-04 10:59:38.663 - INFO  [           main] c.ExecutorConfigurationSupport : Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-04 10:59:38.742 - INFO  [           main] o.a.j.l.DirectJDKLog           : Starting ProtocolHandler ["http-nio-8080"]
+2020-11-04 10:59:38.755 - INFO  [           main] o.s.b.w.e.t.TomcatWebServer    : Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-04 10:59:38.762 - INFO  [           main] o.s.b.StartupInfoLogger        : Started DemoApplication in 2.332 seconds (JVM running for 3.503)

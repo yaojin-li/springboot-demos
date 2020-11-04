@@ -1,13 +1,13 @@
+# Windows环境部署，日志存储于：E:\workspace\springboot-demos\springboot-log4j2\src\main\resources\static\logs
 # 共有8个级别，按照从低到高为：ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < OFF。
 Configuration:
   status: warn
+  # 监控间隔
   monitorInterval: 300
 
   # 定义全局变量
   Properties:
     Property:
-    - name: log.level.console
-      value: info
     - name: log.path
       value: E:\workspace\springboot-demos\springboot-log4j2\src\main\resources\static\logs
     - name: project.name
@@ -16,7 +16,8 @@ Configuration:
       value: "%d{yyyy-MM-dd HH:mm:ss.SSS} -%5p ${PID:-} [%15.15t] %-30.30C{1.} : %m%n"
 
   Appenders:
-    Console:  #输出到控制台
+    # 输出到控制台
+    Console:
       name: CONSOLE
       target: SYSTEM_OUT
       PatternLayout:
@@ -26,55 +27,55 @@ Configuration:
     RollingFile:
     - name: ROLLING_FILE
       fileName: ${log.path}/${project.name}.log
+      # ' -%i '表示一天产生日志文件的个数
       filePattern: "${log.path}/historyRunLog/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
       PatternLayout:
         pattern: ${log.pattern}
       Filters:
         # 一定要先去除不接受的日志级别，然后获取需要接受的日志级别
         ThresholdFilter:
-        - level: error
+        - level: fatal
           onMatch: DENY
           onMismatch: NEUTRAL
-        - level: info
+        - level: debug
           onMatch: ACCEPT
           onMismatch: DENY
+      # 策略
       Policies:
-        TimeBasedTriggeringPolicy:  # 按天分类
+        # 基于时间的触发策略（按 1天分）
+        TimeBasedTriggeringPolicy:
           modulate: true
           interval: 1
-      DefaultRolloverStrategy:     # 文件最多100个
-        max: 100
+        # 基于文件大小的触发策略（按 100MB分）
+        SizeBasedTriggeringPolicy:
+          size: "500 MB"
 
     # 平台日志
-    - name: PLATFORM_ROLLING_FILE
+    - name: PLATFORM_FILE
       ignoreExceptions: false
       fileName: ${log.path}/platform/${project.name}_platform.log
       filePattern: "${log.path}/platform/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
       PatternLayout:
         pattern: ${log.pattern}
       Policies:
-        TimeBasedTriggeringPolicy:  # 按天分类
+        TimeBasedTriggeringPolicy:
           modulate: true
           interval: 1
-      DefaultRolloverStrategy:     # 文件最多100个
-        max: 100
 
     # 业务日志
-    - name: BUSSINESS_ROLLING_FILE
+    - name: BUSSINESS_FILE
       ignoreExceptions: false
       fileName: ${log.path}/bussiness/${project.name}_bussiness.log
       filePattern: "${log.path}/bussiness/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
       PatternLayout:
         pattern: ${log.pattern}
       Policies:
-        TimeBasedTriggeringPolicy:  # 按天分类
+        TimeBasedTriggeringPolicy:
           modulate: true
           interval: 1
-      DefaultRolloverStrategy:     # 文件最多100个
-        max: 100
 
     # 错误日志
-    - name: EXCEPTION_ROLLING_FILE
+    - name: EXCEPTION_FILE
       ignoreExceptions: false
       fileName: ${log.path}/exception/${project.name}_exception.log
       filePattern: "${log.path}/exception/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
@@ -85,25 +86,21 @@ Configuration:
       PatternLayout:
         pattern: ${log.pattern}
       Policies:
-        TimeBasedTriggeringPolicy:  # 按天分类
+        TimeBasedTriggeringPolicy:
           modulate: true
           interval: 1
-      DefaultRolloverStrategy:     # 文件最多100个
-        max: 100
 
     # DB 日志
-    - name: DB_ROLLING_FILE
+    - name: DB_FILE
       ignoreExceptions: false
       fileName: ${log.path}/db/${project.name}_db.log
       filePattern: "${log.path}/db/$${date:yyyy-MM}/${project.name}-%d{yyyy-MM-dd}-%i.log.gz"
       PatternLayout:
         pattern: ${log.pattern}
       Policies:
-        TimeBasedTriggeringPolicy:  # 按天分类
+        TimeBasedTriggeringPolicy:
           modulate: true
           interval: 1
-      DefaultRolloverStrategy:     # 文件最多100个
-        max: 100
 
   Loggers:
     Root:
@@ -112,25 +109,14 @@ Configuration:
       - ref: CONSOLE
       - ref: ROLLING_FILE
       - ref: EXCEPTION_ROLLING_FILE
+
+    # 对特定路径下的文件输出针对性日志
+    # 如下：对mapper中的mapping文件输出SQL debug日志
     Logger:
-    - name: platform
-      level: info
-      additivity: false
-      AppenderRef:
-      - ref: CONSOLE
-      - ref: PLATFORM_ROLLING_FILE
-    - name: bussiness
-      level: info
-      additivity: false
-      AppenderRef:
-      - ref: BUSSINESS_ROLLING_FILE
-    - name: exception
+    - name: com.example.demo.examplemapper
       level: debug
-      additivity: true
-      AppenderRef:
-      - ref: EXCEPTION_ROLLING_FILE
-    - name: db
-      level: info
       additivity: false
       AppenderRef:
-      - ref: DB_ROLLING_FILE
+      - ref: ROLLING_FILE
+      - ref: BUSSINESS_FILE
+
