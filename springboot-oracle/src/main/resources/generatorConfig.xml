@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+
+<generatorConfiguration>
+
+    <!--连接数据库jar 这里选择自己本地位置-->
+    <!--mysql-->
+    <!--<classPathEntry location="E:/IdeaProjects/springboot-demos/springboot-mysql/src/main/resources/static/mysql-connector-java-5.1.46.jar"/>-->
+
+    <!--oracle-->
+    <classPathEntry location="E:/IdeaProjects/springboot-demos/springboot-oracle/src/main/resources/static/ojdbc14-10.2.0.3.0.jar" />
+
+    <!--sqlserver-->
+    <!--<classPathEntry location="E:/IdeaProjects/springboot-demos/springboot-mysql/src/main/resources/static/sqljdbc4.jar" />-->
+
+
+    <context id="testTables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+
+
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <!--oracle-->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@//localhost:1521/orcl"
+                        userId="DEMO_USER"
+                        password="123456">
+        </jdbcConnection>
+
+        <!--mysql-->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql://localhost:3306/springdemo?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false"-->
+                        <!--userId="root"-->
+                        <!--password="123456">-->
+        <!--</jdbcConnection>-->
+
+        <!--sqlserver-->
+        <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+                        <!--connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=demo"-->
+                        <!--userId="sa"-->
+                        <!--password="123456"/>-->
+
+
+
+
+
+        <!-- targetProject:生成VO类的位置 -->
+        <javaModelGenerator targetPackage="mybatis.beans"
+                            targetProject="src/main/resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- targetProject:mapper映射文件生成的位置
+           如果maven工程只是单独的一个工程，targetProject="src/main/java"
+           若果maven工程是分模块的工程，targetProject="所属模块的名称"，例如：
+           targetProject="ecps-manager-mapper"，下同-->
+        <sqlMapGenerator targetPackage="mybatis.mapping"
+                         targetProject="src/main/resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="mybatis.dao"
+                             targetProject="src/main/resources">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- 指定数据库表 -->
+        <table schema="DEMO_USER" tableName="IMAGES"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+
+    </context>
+</generatorConfiguration>

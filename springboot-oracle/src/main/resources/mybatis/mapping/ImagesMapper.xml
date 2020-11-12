@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.base.dao.ImagesMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.base.vo.Images" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="IMG_TYPE" property="imgType" jdbcType="VARCHAR" />
+    <result column="IMG_SIZE" property="imgSize" jdbcType="DECIMAL" />
+    <result column="UUID" property="uuid" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+    <result column="NOTE1" property="note1" jdbcType="VARCHAR" />
+    <result column="NOTE2" property="note2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, TITLE, IMG_TYPE, IMG_SIZE, UUID, REMARK, CREATE_TIME, UPDATE_TIME, NOTE1, NOTE2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from DEMO_USER.IMAGES
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from DEMO_USER.IMAGES
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.base.vo.Images" >
+    insert into DEMO_USER.IMAGES (ID, TITLE, IMG_TYPE, 
+      IMG_SIZE, UUID, REMARK, 
+      CREATE_TIME, UPDATE_TIME, NOTE1, 
+      NOTE2)
+    values (#{id,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{imgType,jdbcType=VARCHAR}, 
+      #{imgSize,jdbcType=DECIMAL}, #{uuid,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=DATE}, #{updateTime,jdbcType=DATE}, #{note1,jdbcType=VARCHAR}, 
+      #{note2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.base.vo.Images" >
+    insert into DEMO_USER.IMAGES
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="imgType != null" >
+        IMG_TYPE,
+      </if>
+      <if test="imgSize != null" >
+        IMG_SIZE,
+      </if>
+      <if test="uuid != null" >
+        UUID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="note1 != null" >
+        NOTE1,
+      </if>
+      <if test="note2 != null" >
+        NOTE2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgType != null" >
+        #{imgType,jdbcType=VARCHAR},
+      </if>
+      <if test="imgSize != null" >
+        #{imgSize,jdbcType=DECIMAL},
+      </if>
+      <if test="uuid != null" >
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="note1 != null" >
+        #{note1,jdbcType=VARCHAR},
+      </if>
+      <if test="note2 != null" >
+        #{note2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.base.vo.Images" >
+    update DEMO_USER.IMAGES
+    <set >
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgType != null" >
+        IMG_TYPE = #{imgType,jdbcType=VARCHAR},
+      </if>
+      <if test="imgSize != null" >
+        IMG_SIZE = #{imgSize,jdbcType=DECIMAL},
+      </if>
+      <if test="uuid != null" >
+        UUID = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      </if>
+      <if test="note1 != null" >
+        NOTE1 = #{note1,jdbcType=VARCHAR},
+      </if>
+      <if test="note2 != null" >
+        NOTE2 = #{note2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.base.vo.Images" >
+    update DEMO_USER.IMAGES
+    set TITLE = #{title,jdbcType=VARCHAR},
+      IMG_TYPE = #{imgType,jdbcType=VARCHAR},
+      IMG_SIZE = #{imgSize,jdbcType=DECIMAL},
+      UUID = #{uuid,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      UPDATE_TIME = #{updateTime,jdbcType=DATE},
+      NOTE1 = #{note1,jdbcType=VARCHAR},
+      NOTE2 = #{note2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>
