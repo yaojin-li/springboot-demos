@@ -1,7 +1,8 @@
 package com.example.demo.enums;
 
 /**
- * @Description: --------------------------------------
+ * @Description: 定义不同类型的业务日志
+ * --------------------------------------
  * @ClassName: LogEnum.java
  * @Date: 2020/11/2 17:29
  * @SoftWare: IntelliJ IDEA
@@ -10,11 +11,7 @@ package com.example.demo.enums;
  * @Contact: lixj_zj@163.com
  **/
 public enum LogEnum {
-    BUSSINESS("bussiness"),
-
-    PLATFORM("platform"),
-
-    DB("db"),
+    NORMAL("normal"),
 
     EXCEPTION("exception"),
 

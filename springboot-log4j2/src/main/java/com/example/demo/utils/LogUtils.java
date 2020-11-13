@@ -16,34 +16,14 @@ import org.slf4j.LoggerFactory;
 
 public class LogUtils {
 
-
     /**
-     * 获取业务日志logger
+     * 获取日志logger
      *
      * @return
      */
-    public static Logger getBussinessLogger() {
-        return LoggerFactory.getLogger(LogEnum.BUSSINESS.getCategory());
+    public static Logger getLogger() {
+        return LoggerFactory.getLogger(LogEnum.NORMAL.getCategory());
     }
-
-    /**
-     * 获取平台日志logger
-     *
-     * @return
-     */
-    public static Logger getPlatformLogger() {
-        return LoggerFactory.getLogger(LogEnum.PLATFORM.getCategory());
-    }
-
-    /**
-     * 获取数据库日志logger
-     *
-     * @return
-     */
-    public static Logger getDBLogger() {
-        return LoggerFactory.getLogger(LogEnum.DB.getCategory());
-    }
-
 
     /**
      * 获取异常日志logger
