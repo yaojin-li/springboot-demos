@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @Description: 方法日志。打印出参、入参、耗时。
+ * @Description: 定义一个方法级别的@log注解。打印出参、入参、耗时。
  * --------------------------------------
  * @ClassName: MethodLog.java
  * @Date: 2020/11/12 18:08
@@ -18,4 +18,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MethodLog {
+    String value() default "";
 }

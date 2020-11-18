@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import java.lang.reflect.Method;
 
 /**
- * @Description: joinPoint 获取切面参数
+ * @Description: joinPoint 获取切面参数，记录日志
  * --------------------------------------
  * @ClassName: MethodLogAop.java
  * @Date: 2020/11/12 18:10
@@ -44,7 +44,8 @@ public class MethodLogAop {
         long beginTime = System.currentTimeMillis();
         Object result = null;
         try {
-            return joinPoint.proceed(args);
+            result = joinPoint.proceed(args);
+            return result;
         } finally {
             long endTime = System.currentTimeMillis();
             long usedTime = endTime - beginTime;

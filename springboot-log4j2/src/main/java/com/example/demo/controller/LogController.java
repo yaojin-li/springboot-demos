@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Description: 传统日志测试 + aop 日志测试
+ * @Description: 传统日志测试
  * --------------------------------------
  * @ClassName: LogController.java
  * @Date: 2020/11/2 15:12
@@ -30,21 +30,6 @@ public class LogController {
 
         Logger exceptionLog = LogUtils.getExceptionLogger();
         exceptionLog.error("exceptionLog...错误日志测试");
-    }
-
-    /**
-     * http://localhost:8080/logaop?name=test
-     **/
-    @RequestMapping("/logAopTest")
-    @MethodLog
-    public String logAopTest(@RequestParam String name) {
-        Logger log = LogUtils.getLogger();
-        log.info(name);
-        log.info("log aop 测试。。");
-
-        Logger exceptionLog = LogUtils.getExceptionLogger();
-        exceptionLog.error("exceptionLog...错误日志测试");
-        return name;
     }
 
 }
