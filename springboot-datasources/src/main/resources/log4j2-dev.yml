@@ -1,0 +1,36 @@
+# Windows环境部署，日志存储于：E:\workspace\springboot-demos\springboot-log4j2\src\main\resources\static\logs
+# 共有8个级别，按照从低到高为：ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < OFF。
+Configuration:
+  status: warn
+  # 监控间隔
+  monitorInterval: 300
+
+  # 定义全局变量
+  Properties:
+    Property:
+    - name: log.pattern
+      value: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%logger{36}.%t:%L] - %msg%n"
+
+  Appenders:
+    # 输出到控制台
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: ${log.pattern}
+
+  Loggers:
+    Root:
+      level: info
+      AppenderRef:
+      - ref: CONSOLE
+
+    # 对特定路径下的文件输出针对性日志
+    # 如下：对mapper中的mapping文件输出SQL debug日志
+    Logger:
+    - name: com.example.demo.mybatis.mapping
+      level: debug
+      additivity: true
+      AppenderRef:
+      - ref: CONSOLE
+
