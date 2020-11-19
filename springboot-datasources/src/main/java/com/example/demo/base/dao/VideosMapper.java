@@ -1,7 +1,7 @@
-package com.example.demo.base.dao.local;
+package com.example.demo.base.dao;
 
 
-import com.example.demo.base.vo.local.Videos;
+import com.example.demo.base.vo.Videos;
 
 public interface VideosMapper {
     int deleteByPrimaryKey(Integer id);

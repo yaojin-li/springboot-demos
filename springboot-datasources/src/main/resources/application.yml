@@ -74,9 +74,7 @@ spring:
         enabled: true
 
 mybatis:
-  master-mapper-locations: classpath:mybatis/mapping/master/*.xml
-  local-mapper-locations: classpath:mybatis/mapping/local/*.xml
-  slave-mapper-locations: classpath:mybatis/mapping/slave/*.xml
+  mapper-locations: classpath:mybatis/mapping/*.xml
 
 server:
   port: 8098

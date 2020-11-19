@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.base.dao.master.ImagesMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.base.vo.master.Images" >
+<mapper namespace="com.example.demo.base.dao.ImagesMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.base.vo.Images" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="TITLE" property="title" jdbcType="VARCHAR" />
     <result column="TYPE" property="type" jdbcType="VARCHAR" />
@@ -25,7 +25,7 @@
     delete from images
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.example.demo.base.vo.master.Images" >
+  <insert id="insert" parameterType="com.example.demo.base.vo.Images" >
     insert into images (ID, TITLE, TYPE,
       UUID, REMARK, CREATE_TIME,
       UPDATE_TIME, NOTE1, NOTE2
@@ -35,7 +35,7 @@
       #{updateTime,jdbcType=TIMESTAMP}, #{note1,jdbcType=VARCHAR}, #{note2,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.base.vo.master.Images" >
+  <insert id="insertSelective" parameterType="com.example.demo.base.vo.Images" >
     insert into images
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -96,7 +96,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.base.vo.master.Images" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.base.vo.Images" >
     update images
     <set >
       <if test="title != null" >
@@ -126,7 +126,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.base.vo.master.Images" >
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.base.vo.Images" >
     update images
     set TITLE = #{title,jdbcType=VARCHAR},
       TYPE = #{type,jdbcType=VARCHAR},

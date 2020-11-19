@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.base.vo.master.Images;
+import com.example.demo.base.vo.Images;
 
 /**
  * @Description: --------------------------------------
@@ -14,5 +14,7 @@ import com.example.demo.base.vo.master.Images;
 public interface ImagesService {
 
     Images selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Integer id, String remark);
 
 }

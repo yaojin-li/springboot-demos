@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.base.vo.local.Videos;
+import com.example.demo.base.vo.Videos;
 
 /**
  * @Description: --------------------------------------

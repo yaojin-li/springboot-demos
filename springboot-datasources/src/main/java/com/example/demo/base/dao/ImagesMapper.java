@@ -1,7 +1,7 @@
-package com.example.demo.base.dao.master;
+package com.example.demo.base.dao;
 
 
-import com.example.demo.base.vo.master.Images;
+import com.example.demo.base.vo.Images;
 
 public interface ImagesMapper {
     int deleteByPrimaryKey(Integer id);

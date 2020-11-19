@@ -1,8 +1,9 @@
-package com.example.demo.base.vo.local;
+package com.example.demo.base.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Videos {
+public class Images implements Serializable {
     private Integer id;
 
     private String title;
