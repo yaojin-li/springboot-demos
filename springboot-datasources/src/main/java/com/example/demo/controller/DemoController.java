@@ -39,7 +39,7 @@ public class DemoController {
     @MethodLog
     public String localTest(@RequestParam int id) {
         Videos videos = videosService.selectByPrimaryKey(id);
-        log.info(String.format("localTest...%s", JSONObject.toJSONString(videos)));
+        log.info(String.format("localTest info...%s", JSONObject.toJSONString(videos)));
         return JSONObject.toJSONString(videos);
     }
 

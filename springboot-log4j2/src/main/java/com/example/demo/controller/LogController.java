@@ -5,7 +5,6 @@ import com.example.demo.utils.LogUtils;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -26,7 +25,9 @@ public class LogController {
     @MethodLog
     public void logTest() {
         Logger log = LogUtils.getLogger();
-        log.info("log...一般日志测试");
+        log.info("log info...一般日志测试");
+        log.warn("log warn...警告日志测试");
+        log.error("log error...错误日志测试");
 
         Logger exceptionLog = LogUtils.getExceptionLogger();
         exceptionLog.error("exceptionLog...错误日志测试");

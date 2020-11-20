@@ -1,0 +1,15 @@
+spring:
+  redis:
+    timeout: 30000
+    lettuce:
+      pool:
+        max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+        max-idle: 10      # 连接池中的最大空闲连接
+        min-idle: 5       # 连接池中的最小空闲连接
+        max-wait: -1      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+    sentinel:
+      master: mymaster
+      nodes: 192.168.100.130:26779, 192.168.100.133:26780, 192.168.100.131:26781
+
+server:
+  port: 8097
