@@ -1,18 +1,13 @@
 package com.example.demo.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.annotation.MethodLog;
-import com.example.demo.base.dao.SalariesMapper;
 import com.example.demo.base.vo.Salaries;
 import com.example.demo.service.MybatisPlusService;
-import org.apache.ibatis.annotations.Param;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
 
@@ -39,17 +34,16 @@ public class MybatisPlusController {
     }
 
     /**
-     * http://localhost:8095/queryTest
+     * http://192.168.100.130:8095/wardemo-0.0.1-SNAPSHOT/queryTest?current=2000000&size=3
+     * http://IP:端口/服务名/请求映射
+     * 端口：Tomcat默认端口，server.xml配置
+     * 服务名：webapps中的服务文件夹名称
      * */
     @RequestMapping("/queryTest")
     @MethodLog
-    public List<Salaries> queryTest() {
-        return mybatisPlusService.queryTest(2,3);
+    public List<Salaries> queryTest(@RequestParam Integer current, @RequestParam Integer size) {
+        return mybatisPlusService.queryTest(current, size);
     }
-
-
-
-
 
 
 }
