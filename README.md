@@ -41,5 +41,9 @@ SpringBoot 学习案例汇总。
 
     _包含：集成Druid数据源配置、mysql主从、本地mysql数据源、log4j2、自定义注解、AOP、mybatis generator等_
     
-        
+10. springboot-mybatisPlus
+
+    _包含：集成mybatisPlus、MybatisPlus 分页插件、log aop、druid、lombok、Mybatis-generator插件等_
+    
+          
      
