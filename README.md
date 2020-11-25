@@ -45,5 +45,9 @@ SpringBoot 学习案例汇总。
 
     _包含：集成mybatisPlus、MybatisPlus 分页插件、log aop、druid、lombok、Mybatis-generator插件等_
     
-          
-     
+11. springboot-wardemo
+
+    _包含：主要测试war包部署，包含war包配置、mybatisPlus、MybatisPlus 分页插件、log aop、druid、lombok、Mybatis-generator插件等_
+    1.http://IP:端口/服务/请求映射
+    2.端口：Tomcat默认端口，server.xml配置；服务名：webapps中的服务名称
+
