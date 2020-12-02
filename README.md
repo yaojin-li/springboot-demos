@@ -51,3 +51,7 @@ SpringBoot 学习案例汇总。
     1.http://IP:端口/服务/请求映射
     2.端口：Tomcat默认端口，server.xml配置；服务名：webapps中的服务名称
 
+12. springboot-swagger
+
+    _包含：集成swagger、mybatisPlus、lombok、Mybatis-generator插件等_ 
+    swagger-ui控台：http://localhost:8080/swagger-ui.html
