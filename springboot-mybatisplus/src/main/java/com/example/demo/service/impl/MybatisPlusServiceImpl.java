@@ -6,6 +6,7 @@ import com.example.demo.base.dao.SalariesMapper;
 import com.example.demo.base.vo.Salaries;
 import com.example.demo.service.MybatisPlusService;
 import lombok.extern.log4j.Log4j2;
+import org.apache.ibatis.cursor.Cursor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,4 +43,11 @@ public class MybatisPlusServiceImpl implements MybatisPlusService {
 
         return iPage.getRecords();
     }
+
+    @Override
+    public Cursor<Salaries> cursorTest(int limit) {
+        return salariesMapper.cursorTest(limit);
+    }
+
+
 }

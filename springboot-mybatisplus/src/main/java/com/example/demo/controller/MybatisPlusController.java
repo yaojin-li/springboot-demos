@@ -7,13 +7,15 @@ import com.example.demo.base.dao.SalariesMapper;
 import com.example.demo.base.vo.Salaries;
 import com.example.demo.service.MybatisPlusService;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.cursor.Cursor;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.jdbc.support.incrementer.HsqlSequenceMaxValueIncrementer;
+import org.springframework.web.bind.annotation.*;
 import lombok.extern.log4j.Log4j2;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,22 +36,18 @@ public class MybatisPlusController {
 
     @MethodLog
     @RequestMapping("/mybatisPlusTest")
-    public int mybatisPlusTest(){
+    public int mybatisPlusTest() {
         return mybatisPlusService.selectAllCount();
     }
 
     /**
      * http://localhost:8095/queryTest
-     * */
+     */
     @RequestMapping("/queryTest")
     @MethodLog
     public List<Salaries> queryTest() {
-        return mybatisPlusService.queryTest(2,3);
+        return mybatisPlusService.queryTest(2, 3);
     }
-
-
-
-
 
 
 }

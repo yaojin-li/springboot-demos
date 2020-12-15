@@ -15,5 +15,9 @@
     select count(*) from salaries
   </select>
 
+  <select id="cursorTest" resultMap="BaseResultMap">
+      select * from salaries limit #{limit}
+  </select>
+
 
 </mapper>

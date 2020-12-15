@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.base.vo.Salaries;
+import org.apache.ibatis.cursor.Cursor;
 
 import java.util.List;
 
@@ -18,5 +19,7 @@ public interface MybatisPlusService {
     int selectAllCount();
 
     List<Salaries> queryTest(Integer current, Integer size);
+
+    Cursor<Salaries> cursorTest(int limit);
 
 }
