@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/employees?useUnicode=true&characterEncoding=UTF8&useSSL=true&serverTimezone=Asia/Shanghai
     username: root
-    password: 123456
+    password: ENC(Pk2burKDkiYGOljTO4vSqg==)
     type: com.alibaba.druid.pool.DruidDataSource
 
     # druid 数据源配置
@@ -69,3 +69,7 @@ server:
   servlet:
     context-path: /
 
+# 数据库密码 解密秘钥
+jasypt:
+  encryptor:
+    password: demo

@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 /**
- * @Description: --------------------------------------
+ * @Description: datasource数据源初始化
+ * --------------------------------------
  * @ClassName: DruidConfig.java
  * @Date: 2020/11/5 10:59
  * @SoftWare: IntelliJ IDEA

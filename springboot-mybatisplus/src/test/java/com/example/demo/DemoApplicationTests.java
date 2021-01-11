@@ -1,19 +1,30 @@
 package com.example.demo;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.demo.base.dao.SalariesMapper;
-import com.example.demo.base.vo.Salaries;
+import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
+import org.jasypt.encryption.pbe.config.EnvironmentPBEConfig;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
-
+@RunWith(SpringRunner.class)
 @SpringBootTest
 class DemoApplicationTests {
 
     @Test
     void contextLoads() {
+        StandardPBEStringEncryptor standardPBEStringEncryptor = new StandardPBEStringEncryptor();
+        EnvironmentPBEConfig config = new EnvironmentPBEConfig();
+
+        // 加密的算法，这个算法是默认的
+        config.setAlgorithm("PBEWithMD5AndDES");
+        // 加密的密钥，配置到yml文件中
+        config.setPassword("demo");
+        standardPBEStringEncryptor.setConfig(config);
+        // 数据库连接密码
+        String plainText = "123456";
+        String encryptedText = standardPBEStringEncryptor.encrypt(plainText);
+        System.out.println(encryptedText);
     }
 
 }
