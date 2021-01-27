@@ -31,7 +31,7 @@ import org.thymeleaf.util.StringUtils;
 public class CustomRealm extends AuthorizingRealm {
 
     @Autowired
-    LoginService loginService;
+    private LoginService loginService;
 
     /**
      * 权限配置类

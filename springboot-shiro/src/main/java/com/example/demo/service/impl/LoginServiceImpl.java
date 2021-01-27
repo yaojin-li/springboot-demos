@@ -41,7 +41,7 @@ public class LoginServiceImpl implements LoginService {
         roles.add(queryRole);
         // 新建普通用户
         User user = new User(1, "zhangsan", "abcdef", roles);
-        result.put(user.getUsername(), user);
+        result.put(user.getName(), user);
 
         // 配置查询、新增角色
         Set<Permissions> addSet = new HashSet<>();
@@ -53,8 +53,8 @@ public class LoginServiceImpl implements LoginService {
         Set<Role> roles1 = new HashSet<>();
         roles1.add(addRole);
         // 新建admin用户
-        User admin = new User(2, "admin-user", "123456", roles1);
-        result.put(user.getUsername(), admin);
+        User admin = new User(2, "admins", "123456", roles1);
+        result.put(user.getName(), admin);
 
         return result.get(getMapByName);
     }
