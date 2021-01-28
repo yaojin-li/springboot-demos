@@ -17,7 +17,10 @@ import org.thymeleaf.util.StringUtils;
 
 
 /**
- * @Description: --------------------------------------
+ * @Description: shiro 测试
+ * 1.先调用login登录；
+ * 2.再调用其他方法测试；
+ * --------------------------------------
  * @ClassName: ShiroController.java
  * @Date: 2021/1/26 19:21
  * @SoftWare: IntelliJ IDEA
@@ -37,12 +40,12 @@ public class ShiroController {
         }
 
         // 用户认证信息
-        Subject subject = SecurityUtils.getSubject();
+        Subject currentUser = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getName(), user.getPassword());
 
         try {
             // 信息验证
-            subject.login(usernamePasswordToken);
+            currentUser.login(usernamePasswordToken);
         } catch (UnknownAccountException e) {
             log.error("用户名不存在！", e);
             return "用户名不存在！";
@@ -57,7 +60,7 @@ public class ShiroController {
     }
 
     @GetMapping("/admin")
-//    @RequiresRoles("admin")
+    @RequiresRoles("admin")
     public String admin() {
         return "admin success...";
     }

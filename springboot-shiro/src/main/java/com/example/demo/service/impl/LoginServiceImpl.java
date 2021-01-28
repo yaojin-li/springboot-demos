@@ -54,7 +54,7 @@ public class LoginServiceImpl implements LoginService {
         roles1.add(addRole);
         // 新建admin用户
         User admin = new User(2, "admins", "123456", roles1);
-        result.put(user.getName(), admin);
+        result.put(admin.getName(), admin);
 
         return result.get(getMapByName);
     }
