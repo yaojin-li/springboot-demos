@@ -31,7 +31,8 @@ public class MybatisPlusServiceImpl implements MybatisPlusService {
 
     @Override
     public int selectAllCount() {
-        return salariesMapper.selectAllCount();
+//        return salariesMapper.selectAllCount();
+        return 0;
     }
 
     @Override

@@ -11,6 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 class DemoApplicationTests {
 
+    /**
+     * 数据库连接密码 加解密
+     * */
     @Test
     void contextLoads() {
         StandardPBEStringEncryptor standardPBEStringEncryptor = new StandardPBEStringEncryptor();
@@ -22,7 +25,7 @@ class DemoApplicationTests {
         config.setPassword("demo");
         standardPBEStringEncryptor.setConfig(config);
         // 数据库连接密码
-        String plainText = "123456";
+        String plainText = "123456789";
         String encryptedText = standardPBEStringEncryptor.encrypt(plainText);
         System.out.println(encryptedText);
     }

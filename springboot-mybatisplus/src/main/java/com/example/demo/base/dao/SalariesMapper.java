@@ -24,6 +24,6 @@ public interface SalariesMapper extends BaseMapper<Salaries> {
     Cursor<Salaries> cursorTest(@Param("limit") int limit);
 
     List<Map<String, Object>> selectInfo(@Param("page") Page<Salaries> page,
-                                         @Param("page") Map<String, Object> condition);
+                                         @Param("condition") Map<String, Object> condition);
 
 }

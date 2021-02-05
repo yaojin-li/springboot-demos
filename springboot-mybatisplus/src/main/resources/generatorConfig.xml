@@ -5,12 +5,9 @@
 
 <generatorConfiguration>
 
-
-
-
     <!--连接数据库jar 这里选择自己本地位置-->
     <!--mysql-->
-    <classPathEntry location="E:/workspace/springboot-demos/springboot-mybatisplus/src/main/resources/static/mysql-connector-java-5.1.46.jar"/>
+    <classPathEntry location="D:/ZX_workspace/springboot-demos/springboot-mybatisplus/src/main/resources/static/mysql-connector-java-5.1.46.jar"/>
 
     <!--oracle-->
     <!--<classPathEntry location="E:/workspace/springboot-demos/springboot-mybatisplus/src/main/resources/static/ojdbc14-10.2.0.3.0.jar" />-->
@@ -18,8 +15,8 @@
     <!--sqlserver-->
     <!--<classPathEntry location="E:/IdeaProjects/springboot-demos/springboot-mybatisplus/src/main/resources/static/sqljdbc4.jar" />-->
 
-
-    <context id="testTables" targetRuntime="MyBatis3">
+    <!-- defaultModelType="flat" 代表一张表生成一个VO -->
+    <context id="testTables" targetRuntime="MyBatis3" defaultModelType="flat">
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true" />
@@ -38,7 +35,7 @@
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://localhost:3306/employees?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false"
                         userId="root"
-                        password="123456">
+                        password="123456789">
         </jdbcConnection>
 
         <!--sqlserver-->

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
@@ -27,21 +28,25 @@ import java.util.Map;
  **/
 @Controller
 @Log4j2
+@RequestMapping("/mybatisQuery")
 public class MybatisQueryController {
 
     @Autowired
     public MybatisPlusService mybatisPlusService;
 
+    /**
+     * mybatis 分页查询 + 条件查询
+     * */
     @MethodLog
-    @RequestMapping(value = "/mybatisQuery", method = RequestMethod.POST)
-    public Object mybatisQuery(@RequestBody JSONObject params) {
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @ResponseBody
+    public Object list(@RequestBody JSONObject params) {
         int current = Integer.valueOf(params.getString("current"));
         int limit = Integer.valueOf(params.getString("limit"));
         Page<Salaries> page = new Page<>(current, limit);
         Map<String, Object> condition = JSON.toJavaObject(params, Map.class);
         List<Map<String, Object>> result = mybatisPlusService.selectInfo(page, condition);
-        page.setRecords(result);
-        return
+        return result;
     }
 
 
