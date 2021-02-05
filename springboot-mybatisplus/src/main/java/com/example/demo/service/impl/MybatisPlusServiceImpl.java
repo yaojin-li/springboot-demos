@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description: --------------------------------------
@@ -47,6 +48,11 @@ public class MybatisPlusServiceImpl implements MybatisPlusService {
     @Override
     public Cursor<Salaries> cursorTest(int limit) {
         return salariesMapper.cursorTest(limit);
+    }
+
+    @Override
+    public List<Map<String, Object>> selectInfo(Page<Salaries> page, Map<String, Object> condition) {
+        return  salariesMapper.selectInfo(page, condition);
     }
 
 

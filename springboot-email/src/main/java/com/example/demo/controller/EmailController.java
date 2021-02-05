@@ -31,6 +31,18 @@ public class EmailController {
         return "success";
     }
 
+    @RequestMapping("/sendHtmlMail")
+    @ResponseBody
+    public String sendHtmlMail(){
+        emailService.sendHtmlMail("lixj_zj@163.com","主题：html邮件","<h1>内容：第一封html邮件</h1>");
+        return "success";
+    }
 
+    @RequestMapping("/sendAttachmentsMail")
+    @ResponseBody
+    public String sendAttachmentsMail(){
+        emailService.sendAttachmentsMail("lixj_zj@163.com","主题：含附件邮件","附件邮件","C:\\Users\\User\\Desktop\\error.txt");
+        return "success";
+    }
 
 }

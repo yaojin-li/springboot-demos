@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.base.dao.SalariesMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.base.vo.Salaries">
-    <id column="emp_no" jdbcType="INTEGER" property="empNo" />
-    <id column="from_date" jdbcType="DATE" property="fromDate" />
-    <result column="salary" jdbcType="INTEGER" property="salary" />
-    <result column="to_date" jdbcType="DATE" property="toDate" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="com.example.demo.base.vo.Salaries">
+        <id column="emp_no" jdbcType="INTEGER" property="empNo"/>
+        <id column="from_date" jdbcType="DATE" property="fromDate"/>
+        <result column="salary" jdbcType="INTEGER" property="salary"/>
+        <result column="to_date" jdbcType="DATE" property="toDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     emp_no, from_date, salary, to_date
   </sql>
 
-  <select id="selectAllCount" resultType="java.lang.Integer">
+    <select id="selectAllCount" resultType="java.lang.Integer">
     select count(*) from salaries
   </select>
 
-  <select id="cursorTest" resultMap="BaseResultMap">
+    <select id="cursorTest" resultMap="BaseResultMap">
       select * from salaries limit #{limit}
   </select>
 
+    <select id="selectInfo" resultType="map">
+        select * from salaries
+        <where>
+            <if test="condition.empNo != null and condition.empNo != ''">
+                and emp_no like CONCAT('%', #{condition.empNo,jdbcType=INTEGER}, '%')
+            </if>
+            <if test="condition.salary != null and condition.salary != ''">
+                and salary = #{condition.salary,jdbcType=INTEGER}
+            </if>
+            <if test="condition.fromDate != null and condition.fromDate != ''">
+                and from_date = #{condition.fromDate,jdbcType=DATE}
+            </if>
+            <if test="condition.toDate != null and condition.toDate != ''">
+                and to_date = #{condition.toDate,jdbcType=DATE}
+            </if>
+        </where>
+    </select>
 
 </mapper>

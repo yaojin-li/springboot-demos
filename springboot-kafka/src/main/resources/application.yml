@@ -1,0 +1,15 @@
+spring:
+  kafka:
+    bootstrap-servers: 192.168.100.133:9092,192.168.100.130:9092,192.168.100.131:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: test
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+server:
+  port: 8095
+  servlet:
+    context-path: /

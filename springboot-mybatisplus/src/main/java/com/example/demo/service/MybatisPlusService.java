@@ -1,9 +1,11 @@
 package com.example.demo.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.base.vo.Salaries;
 import org.apache.ibatis.cursor.Cursor;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description: --------------------------------------
@@ -21,5 +23,7 @@ public interface MybatisPlusService {
     List<Salaries> queryTest(Integer current, Integer size);
 
     Cursor<Salaries> cursorTest(int limit);
+
+    List<Map<String, Object>> selectInfo(Page<Salaries> page, Map<String, Object> condition);
 
 }
