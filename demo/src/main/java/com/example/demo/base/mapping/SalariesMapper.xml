@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.base.dao.SalariesMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.base.vo.Salaries">
+    <id column="emp_no" jdbcType="INTEGER" property="empNo" />
+    <id column="from_date" jdbcType="DATE" property="fromDate" />
+    <result column="salary" jdbcType="INTEGER" property="salary" />
+    <result column="to_date" jdbcType="DATE" property="toDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    emp_no, from_date, salary, to_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from salaries
+    where emp_no = #{empNo,jdbcType=INTEGER}
+      and from_date = #{fromDate,jdbcType=DATE}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    delete from salaries
+    where emp_no = #{empNo,jdbcType=INTEGER}
+      and from_date = #{fromDate,jdbcType=DATE}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.base.vo.Salaries">
+    insert into salaries (emp_no, from_date, salary, 
+      to_date)
+    values (#{empNo,jdbcType=INTEGER}, #{fromDate,jdbcType=DATE}, #{salary,jdbcType=INTEGER}, 
+      #{toDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.base.vo.Salaries">
+    insert into salaries
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="empNo != null">
+        emp_no,
+      </if>
+      <if test="fromDate != null">
+        from_date,
+      </if>
+      <if test="salary != null">
+        salary,
+      </if>
+      <if test="toDate != null">
+        to_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="empNo != null">
+        #{empNo,jdbcType=INTEGER},
+      </if>
+      <if test="fromDate != null">
+        #{fromDate,jdbcType=DATE},
+      </if>
+      <if test="salary != null">
+        #{salary,jdbcType=INTEGER},
+      </if>
+      <if test="toDate != null">
+        #{toDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.base.vo.Salaries">
+    update salaries
+    <set>
+      <if test="salary != null">
+        salary = #{salary,jdbcType=INTEGER},
+      </if>
+      <if test="toDate != null">
+        to_date = #{toDate,jdbcType=DATE},
+      </if>
+    </set>
+    where emp_no = #{empNo,jdbcType=INTEGER}
+      and from_date = #{fromDate,jdbcType=DATE}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.base.vo.Salaries">
+    update salaries
+    set salary = #{salary,jdbcType=INTEGER},
+      to_date = #{toDate,jdbcType=DATE}
+    where emp_no = #{empNo,jdbcType=INTEGER}
+      and from_date = #{fromDate,jdbcType=DATE}
+  </update>
+
+</mapper>
