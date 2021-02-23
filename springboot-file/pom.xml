@@ -84,6 +84,25 @@
             <version>1.9.6</version>
         </dependency>
 
+
+        <!--EasyPoi导入导出-->
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-base</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-web</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-annotation</artifactId>
+            <version>3.0.3</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -94,34 +113,34 @@
             </plugin>
 
             <!--Mybatis-generator插件,用于自动生成Mapper和POJO-->
-            <!--<plugin>-->
-                <!--<groupId>org.mybatis.generator</groupId>-->
-                <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
-                <!--<version>1.3.2</version>-->
-                <!--<configuration>-->
-                    <!--&lt;!&ndash;配置文件的位置&ndash;&gt;-->
-                    <!--<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>-->
-                    <!--&lt;!&ndash; 在控制台打印执行日志 &ndash;&gt;-->
-                    <!--<verbose>true</verbose>-->
-                    <!--&lt;!&ndash; 重复生成时会覆盖之前的文件&ndash;&gt;-->
-                    <!--<overwrite>true</overwrite>-->
-                <!--</configuration>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<id>Generate MyBatis Artifacts</id>-->
-                        <!--<goals>-->
-                            <!--<goal>generate</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.mybatis.generator</groupId>-->
-                        <!--<artifactId>mybatis-generator-core</artifactId>-->
-                        <!--<version>1.3.2</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <!--配置文件的位置-->
+                    <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                    <!-- 在控制台打印执行日志 -->
+                    <verbose>true</verbose>
+                    <!-- 重复生成时会覆盖之前的文件-->
+                    <overwrite>true</overwrite>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
 
         </plugins>
     </build>
