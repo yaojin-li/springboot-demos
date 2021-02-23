@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Description: --------------------------------------
  * @ClassName: ExcelService.java
@@ -10,5 +13,5 @@ package com.example.demo.service;
  * @Contact: lixj_zj@163.com
  **/
 public interface ExcelService {
-
+    List<Map<String, Object>> selectAll();
 }

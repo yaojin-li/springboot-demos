@@ -42,7 +42,7 @@ public class FileUploadController {
         try {
             file.transferTo(new File(fileSavePath + name));
         } catch (Exception e) {
-            log.error("上传那文件出错！", e);
+            log.error("上传单个文件出错！", e);
         }
         HashMap<String, Object> map = new HashMap<>();
         // 记录fileID
@@ -66,7 +66,7 @@ public class FileUploadController {
             try {
                 file.transferTo(new File(fileSavePath + name));
             } catch (Exception e) {
-                log.error("上传那文件出错！", e);
+                log.error("上传文件出错！", e);
             }
             map.put(name, IdWorker.getIdStr());
         }
