@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.example.demo.annotation.MethodLog;
-import com.example.demo.utils.FileUtils;
+import com.example.demo.utils.FileUtil;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +38,7 @@ public class FileUploadController {
     public Object upload(@RequestPart("file") MultipartFile file, HttpServletRequest request) {
         String name = file.getOriginalFilename();
         request.getSession().setAttribute("upFile", name);
-        String fileSavePath = FileUtils.getFileUploadPath(fileUploadPath);
+        String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
         try {
             file.transferTo(new File(fileSavePath + name));
         } catch (Exception e) {
@@ -62,7 +62,7 @@ public class FileUploadController {
         for (MultipartFile file : files) {
             String name = file.getOriginalFilename();
             request.getSession().setAttribute("upFile", name);
-            String fileSavePath = FileUtils.getFileUploadPath(fileUploadPath);
+            String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
             try {
                 file.transferTo(new File(fileSavePath + name));
             } catch (Exception e) {

@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: FileUtils.java
+ * @ClassName: FileUtil.java
  * @Date: 2021/2/22 21:31
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -30,7 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @Contact: lixj_zj@163.com
  **/
 @Slf4j
-public class FileUtils {
+public class FileUtil {
     /**
      * 获取文件上传路径(用于头像和富文本编辑器)
      */
@@ -60,6 +60,9 @@ public class FileUtils {
         }
     }
 
+    /**
+     * 获取系统临时路径
+     * */
     public static String getTempPath() {
         return System.getProperty("java.io.tmpdir");
     }
@@ -111,7 +114,7 @@ public class FileUtils {
                                     // 数字单元格类型
                                     if (DateUtil.isCellDateFormatted(cell)){
                                         // 日期
-                                        value = new SimpleDateFormat(Constants.DATA_PATTERN).format(cell.getDateCellValue());
+                                        value = new SimpleDateFormat(DateTimeUtil.DATA_PATTERN).format(cell.getDateCellValue());
                                     }else {
                                         // 数字
                                         value = cell.getNumericCellValue();
@@ -121,7 +124,7 @@ public class FileUtils {
                                     // 公式单元格类型
                                     if (DateUtil.isCellDateFormatted(cell)) {
                                         // 日期
-                                        value = new SimpleDateFormat(Constants.DATA_PATTERN).format(cell.getDateCellValue());
+                                        value = new SimpleDateFormat(DateTimeUtil.DATA_PATTERN).format(cell.getDateCellValue());
                                     } else {
                                         // 数字
                                         value = cell.getNumericCellValue();

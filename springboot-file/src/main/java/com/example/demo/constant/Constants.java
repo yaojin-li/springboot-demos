@@ -12,8 +12,8 @@ package com.example.demo.constant;
 public interface Constants {
 
     /**
-     * 日期格式-年月日
+     * 性别
      * */
-    String DATA_PATTERN = "yyyy-MM-dd";
+    String[] SEX = {"男", "女"};
 
 }
