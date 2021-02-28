@@ -40,21 +40,9 @@ public class ExcelController {
     @RequestMapping(value = "/readExcelData", method = RequestMethod.POST)
     @ResponseBody
     public Object readExcelData(HttpServletRequest request) {
-        JSONObject result = new JSONObject();
         String name = (String) request.getSession().getAttribute("upFile");
         String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
-        if (name != null) {
-            File file = new File(fileSavePath + name);
-            try {
-                JSONObject excelData = FileUtil.readExcel(file);
-                result.put("excelData", excelData);
-                result.put("size", excelData.size());
-                return result;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
+        return excelService.readExcelData(name, fileSavePath);
     }
 
     /**
@@ -67,7 +55,7 @@ public class ExcelController {
         // 1.获取数据
         List<Map<String, Object>> result = excelService.selectAll();
         String fileName = "测试数据导出";
-        // Excel列名
+        // Excel列名。后续可将名称与关系维护至数据库中。
         String[] titles = new String[]{"序号", "姓名", "性别", "出借数量", "密码", "创建时间", "更新时间", "备注"};
         // 列名对应字段名。与获取数据字段名一致。
         String[] columns = new String[]{"id", "name", "sex", "borrow_num", "password", "create_time", "update_time", "note"};

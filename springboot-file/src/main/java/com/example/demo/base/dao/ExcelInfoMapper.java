@@ -6,15 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ExcelInfoMapper extends BaseMapper<ExcelInfo> {
-    int deleteByPrimaryKey(Long id);
 
-    int insert(ExcelInfo record);
-
-    int insertSelective(ExcelInfo record);
-
-    ExcelInfo selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(ExcelInfo record);
-
-    int updateByPrimaryKey(ExcelInfo record);
 }

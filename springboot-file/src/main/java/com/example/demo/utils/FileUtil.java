@@ -62,7 +62,7 @@ public class FileUtil {
 
     /**
      * 获取系统临时路径
-     * */
+     */
     public static String getTempPath() {
         return System.getProperty("java.io.tmpdir");
     }
@@ -76,7 +76,7 @@ public class FileUtil {
         try {
             InputStream inputStream = new FileInputStream(file.getAbsoluteFile());
             HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
-            int rowSize = 0;
+//            int rowSize = 0;
 
             for (int sheetIndex = 0; sheetIndex < workbook.getNumberOfSheets(); sheetIndex++) {
                 HSSFSheet sheet = workbook.getSheetAt(sheetIndex);
@@ -93,15 +93,16 @@ public class FileUtil {
                         continue;
                     }
 
-                    int tempRowSize = row.getLastCellNum() + 1;
-                    if (tempRowSize > rowSize) {
-                        rowSize = tempRowSize;
-                    }
+//                    int tempRowSize = row.getLastCellNum() + 1;
+//                    if (tempRowSize > rowSize) {
+//                        rowSize = tempRowSize;
+//                    }
 
                     Map<String, Object> rowData = new ConcurrentHashMap<>();
                     boolean hasValue = false;
 
-                    for (int columnIndex = 0; columnIndex < row.getLastCellNum()-1; columnIndex++) {
+                    // 遍历每行数据
+                    for (int columnIndex = 0; columnIndex < row.getLastCellNum(); columnIndex++) {
                         HSSFCell cell = row.getCell(columnIndex);
                         Object value = "";
 
@@ -112,10 +113,10 @@ public class FileUtil {
                                     break;
                                 case NUMERIC:
                                     // 数字单元格类型
-                                    if (DateUtil.isCellDateFormatted(cell)){
+                                    if (DateUtil.isCellDateFormatted(cell)) {
                                         // 日期
                                         value = new SimpleDateFormat(DateTimeUtil.DATA_PATTERN).format(cell.getDateCellValue());
-                                    }else {
+                                    } else {
                                         // 数字
                                         value = cell.getNumericCellValue();
                                     }
@@ -136,10 +137,10 @@ public class FileUtil {
                         }
 
                         // 获取第一行标题对应的枚举
-                        if (ObjectUtils.isNotEmpty(firstRow.getCell(columnIndex))){
+                        if (ObjectUtils.isNotEmpty(firstRow.getCell(columnIndex))) {
                             rowData.put(firstRow.getCell(columnIndex).getStringCellValue(), value);
                             hasValue = true;
-                        }else {
+                        } else {
                             log.error(String.format("[%s]文件标题中存在空值！", file.getName()));
                             throw new NullPointerException();
                         }
@@ -149,7 +150,9 @@ public class FileUtil {
                         sheetData.add(rowData);
                     }
                 }
-                result.put(sheet.getSheetName(), sheetData);
+                if (!sheetData.isEmpty()) {
+                    result.put(sheet.getSheetName(), sheetData);
+                }
             }
             inputStream.close();
         } catch (Exception e) {
@@ -157,7 +160,6 @@ public class FileUtil {
         }
         return result;
     }
-
 
 
 }

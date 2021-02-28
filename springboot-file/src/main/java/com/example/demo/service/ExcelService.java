@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.base.vo.ExcelInfo;
 
@@ -18,5 +19,7 @@ import java.util.Map;
 public interface ExcelService extends IService<ExcelInfo> {
 
     List<Map<String, Object>> selectAll();
+
+    JSONObject readExcelData(String name, String fileSavePath);
 
 }

@@ -1,13 +1,17 @@
 package com.example.demo.base.vo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.util.Date;
 
 @TableName("excel_info")
-public class ExcelInfo extends Model<ExcelInfo> {
-    private Long id;
+public class ExcelInfo {
+
+    @TableId(value = "id",type = IdType.AUTO)
+    private Integer id;
 
     private String name;
 
@@ -23,11 +27,11 @@ public class ExcelInfo extends Model<ExcelInfo> {
 
     private String note;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
