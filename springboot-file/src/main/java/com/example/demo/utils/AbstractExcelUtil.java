@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.utils;
 
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.utils.StringUtil;
@@ -15,14 +15,14 @@ import java.util.Map;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: ExcelService.java
+ * @ClassName: AbstractExcelUtil.java
  * @Date: 2021/2/22 21:19
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
-public abstract class AbstractExcelService {
+public abstract class AbstractExcelUtil {
 
     private static final String FIREFOX = "firefox";
 

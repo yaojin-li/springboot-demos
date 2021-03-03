@@ -6,19 +6,19 @@ import java.util.Map;
 /**
  * @Description: 定义Excel第一行title与数据库中字段对应关系
  * --------------------------------------
- * @ClassName: ExcelDbConstants.java
+ * @ClassName: BorrowerInfoDbConstant.java
  * @Date: 2021/2/28 16:10
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
-public class ExcelDbConstants {
+public class BorrowerInfoDbConstant {
 
     /**
      * 重载HashMap的一个匿名实现
      * */
-    public static Map<String, String> EXCEL_DB_KEY_MAP = new HashMap<String, String>() {
+    public static Map<String, String> BORROWER_INFO_DB_KEY_MAP = new HashMap<String, String>() {
         {
             put("姓名", "name");
             put("性别", "sex");

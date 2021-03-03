@@ -2,7 +2,7 @@ package com.example.demo.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.demo.base.vo.ExcelInfo;
+import com.example.demo.base.vo.BorrowerInfo;
 
 import java.util.List;
 import java.util.Map;
@@ -16,10 +16,7 @@ import java.util.Map;
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
-public interface ExcelService extends IService<ExcelInfo> {
+public interface ExcelService extends IService<BorrowerInfo> {
 
-    List<Map<String, Object>> selectAll();
-
-    JSONObject readExcelData(String name, String fileSavePath);
 
 }

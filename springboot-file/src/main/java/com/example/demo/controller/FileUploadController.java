@@ -5,15 +5,14 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.example.demo.annotation.MethodLog;
-import com.example.demo.base.vo.ExcelInfo;
-import com.example.demo.constant.ExcelDbConstants;
+import com.example.demo.base.vo.BorrowerInfo;
+import com.example.demo.constant.BorrowerInfoDbConstant;
 import com.example.demo.service.ExcelService;
 import com.example.demo.utils.FileUtil;
 import com.example.demo.utils.JsonUtil;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.IdGenerator;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -93,9 +92,9 @@ public class FileUploadController {
     public String getUploadData(HttpServletRequest request, @RequestBody JSONObject params) {
         // 获取上传成功的数据
         String fileName = (String) request.getSession().getAttribute("upFile");
-        JSONObject uploadData = excelService.readExcelData(fileName, fileUploadPath);
+        JSONObject uploadData = FileUtil.readExcelData(fileName, fileUploadPath);
 
-        List<ExcelInfo> res = new ArrayList<>();
+        List<BorrowerInfo> res = new ArrayList<>();
         JSONObject data = (JSONObject) uploadData.get("excelData");
         Iterator sheetIter = data.entrySet().iterator();
 
@@ -107,9 +106,9 @@ public class FileUploadController {
             // 遍历每个sheet页中的数据
             for (Object oneRow : rowsArray) {
                 // 转换：sheet页的标题行与数据库中字段对应
-                JSONObject jsonObj = JsonUtil.changeJsonObj((JSONObject) oneRow, ExcelDbConstants.EXCEL_DB_KEY_MAP);
+                JSONObject jsonObj = JsonUtil.changeJsonObj((JSONObject) oneRow, BorrowerInfoDbConstant.BORROWER_INFO_DB_KEY_MAP);
                 // 将每行数据转换为dto
-                ExcelInfo excelInfo = JSON.toJavaObject(changeDtoValue(jsonObj), ExcelInfo.class);
+                BorrowerInfo excelInfo = JSON.toJavaObject(changeDtoValue(jsonObj), BorrowerInfo.class);
                 res.add(excelInfo);
             }
         }

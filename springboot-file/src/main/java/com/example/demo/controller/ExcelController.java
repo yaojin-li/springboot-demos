@@ -1,16 +1,15 @@
 package com.example.demo.controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.example.demo.service.ExcelInfoService;
+import com.alibaba.druid.util.StringUtils;
+import com.example.demo.constant.ExcelPage;
+import com.example.demo.excel.BorrowerInfoExcel;
+import com.example.demo.excel.BorrowerInfoFields;
 import com.example.demo.service.ExcelService;
-import com.example.demo.utils.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -35,36 +34,31 @@ public class ExcelController {
     private ExcelService excelService;
 
     /**
-     * 获取Excel数据
-     */
-    @RequestMapping(value = "/readExcelData", method = RequestMethod.POST)
-    @ResponseBody
-    public Object readExcelData(HttpServletRequest request) {
-        String name = (String) request.getSession().getAttribute("upFile");
-        String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
-        return excelService.readExcelData(name, fileSavePath);
-    }
-
-    /**
      * 下载Excel文件
-     * 列表数据
-     */
+     * 注：
+     * 前端请求中的 Headers 中指定 Content-Type
+     * Content-Type: application/x-www-form-urlencoded
+     * */
     @RequestMapping(value = "/downloadExcelInfo", method = RequestMethod.POST)
     @ResponseBody
-    public Object downloadExcelInfo(HttpServletRequest request) {
-        // 1.获取数据
-        List<Map<String, Object>> result = excelService.selectAll();
-        String fileName = "测试数据导出";
-        // Excel列名。后续可将名称与关系维护至数据库中。
-        String[] titles = new String[]{"序号", "姓名", "性别", "出借数量", "密码", "创建时间", "更新时间", "备注"};
-        // 列名对应字段名。与获取数据字段名一致。
-        String[] columns = new String[]{"id", "name", "sex", "borrow_num", "password", "create_time", "update_time", "note"};
+    public Object downloadExcelInfo(@RequestPart("pageName") String pageName) {
+        //
+        if (StringUtils.isEmpty(pageName)){
+            return null;
+        }
 
-        // 2.写入Excel
         try {
-            new ExcelInfoService().exportData(result, fileName, titles, columns);
+            if (pageName.equals(ExcelPage.BORROWER_INFO.getName())){
+                // 1.获取数据
+                List<Map<String, Object>> result = excelService.listMaps();
+                // 2.写入Excel
+                new BorrowerInfoExcel().exportData(result, BorrowerInfoFields.fileName,
+                        BorrowerInfoFields.titles, BorrowerInfoFields.columns);
+            }else {
+                return "error";
+            }
         } catch (Exception e) {
-            log.error("下载Excel文件时，写入Excel数据异常！", e);
+            log.error(String.format("下载[%s]Excel文件时，写入Excel数据异常！", pageName), e);
         }
         return null;
     }

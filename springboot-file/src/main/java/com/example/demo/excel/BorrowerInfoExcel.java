@@ -1,26 +1,26 @@
-package com.example.demo.service;
+package com.example.demo.excel;
 
 import com.example.demo.constant.Constants;
+import com.example.demo.utils.AbstractExcelUtil;
 import com.example.demo.utils.DateTimeUtil;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: ExcelInfoService.java
- * @Date: 2021/2/19 18:35
+ * @ClassName: BorrowerInfoExcel.java
+ * @Date: 2021/3/3 18:59
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
-
-public class ExcelInfoService extends AbstractExcelService {
-
+public class BorrowerInfoExcel extends AbstractExcelUtil {
     /**
      * 设置格式
      */

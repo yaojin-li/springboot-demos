@@ -73,10 +73,9 @@ public class FileUtil {
      */
     public static JSONObject readExcel(File file) {
         JSONObject result = new JSONObject();
-        try {
-            InputStream inputStream = new FileInputStream(file.getAbsoluteFile());
-            HSSFWorkbook workbook = new HSSFWorkbook(inputStream);
-//            int rowSize = 0;
+        //  try-with-resources
+        try (InputStream inputStream = new FileInputStream(file.getAbsoluteFile());
+             HSSFWorkbook workbook = new HSSFWorkbook(inputStream)){
 
             for (int sheetIndex = 0; sheetIndex < workbook.getNumberOfSheets(); sheetIndex++) {
                 HSSFSheet sheet = workbook.getSheetAt(sheetIndex);
@@ -92,11 +91,6 @@ public class FileUtil {
                     if (ObjectUtils.isNull(row)) {
                         continue;
                     }
-
-//                    int tempRowSize = row.getLastCellNum() + 1;
-//                    if (tempRowSize > rowSize) {
-//                        rowSize = tempRowSize;
-//                    }
 
                     Map<String, Object> rowData = new ConcurrentHashMap<>();
                     boolean hasValue = false;
@@ -154,12 +148,34 @@ public class FileUtil {
                     result.put(sheet.getSheetName(), sheetData);
                 }
             }
-            inputStream.close();
         } catch (Exception e) {
             log.error(String.format("读取Excel文件[%s]异常！", file.getName()), e);
         }
         return result;
     }
 
+
+    /**
+     * 读取Excel数据
+     *
+     * @param name         文件名称
+     * @param fileSavePath 文件保存路径
+     * @return result      Excel数据
+     */
+    public static JSONObject readExcelData(String name, String fileSavePath) {
+        JSONObject result = new JSONObject();
+        if (name != null) {
+            File file = new File(fileSavePath + name);
+            try {
+                JSONObject excelData = FileUtil.readExcel(file);
+                result.put("excelData", excelData);
+                result.put("size", excelData.size());
+                return result;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
 
 }
