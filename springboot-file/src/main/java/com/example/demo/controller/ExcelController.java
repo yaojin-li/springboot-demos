@@ -8,8 +8,10 @@ import com.example.demo.service.ExcelService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +24,7 @@ import java.util.Map;
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
-@RestController
+@Controller
 @Slf4j
 @RequestMapping("/excel")
 public class ExcelController {
@@ -33,32 +35,41 @@ public class ExcelController {
     @Autowired
     private ExcelService excelService;
 
+    @RequestMapping(value = "/excelDemo")
+    public String excelDemo() {
+        return "excelDemo";
+    }
+
     /**
      * 下载Excel文件
      * 注：
-     * 前端请求中的 Headers 中指定 Content-Type
+     * 1.前端请求中的 Headers 中指定 Content-Type；
      * Content-Type: application/x-www-form-urlencoded
-     * */
+     * 2.请求的body中，from-data中传参pageName；
+     * 3.页面下载的文件名称为中文，postman等访问接口下载的文件名称为编码后的结果。
+     */
     @RequestMapping(value = "/downloadExcelInfo", method = RequestMethod.POST)
     @ResponseBody
-    public Object downloadExcelInfo(@RequestPart("pageName") String pageName) {
+    public Object downloadExcelInfo(HttpServletRequest request) {
         //
-        if (StringUtils.isEmpty(pageName)){
+        String excelPage = request.getParameter("excelPage");
+        if (StringUtils.isEmpty(excelPage)) {
             return null;
         }
 
         try {
-            if (pageName.equals(ExcelPage.BORROWER_INFO.getName())){
+            // 判断需要下载的excel对应的页面和数据库
+            if (excelPage.equals(ExcelPage.BORROWER_INFO.getName())) {
                 // 1.获取数据
                 List<Map<String, Object>> result = excelService.listMaps();
                 // 2.写入Excel
                 new BorrowerInfoExcel().exportData(result, BorrowerInfoFields.fileName,
                         BorrowerInfoFields.titles, BorrowerInfoFields.columns);
-            }else {
+            } else {
                 return "error";
             }
         } catch (Exception e) {
-            log.error(String.format("下载[%s]Excel文件时，写入Excel数据异常！", pageName), e);
+            log.error(String.format("下载[%s]Excel文件时，写入Excel数据异常！", excelPage), e);
         }
         return null;
     }

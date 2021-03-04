@@ -11,7 +11,7 @@ package com.example.demo.excel;
  **/
 public class BorrowerInfoFields {
 
-    public static String fileName = "";
+    public static String fileName = "借入人信息表";
 
     /**
      * excel 列名。后续可将名称与关系维护至数据库中。

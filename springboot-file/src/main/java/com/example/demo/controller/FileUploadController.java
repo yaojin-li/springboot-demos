@@ -47,6 +47,9 @@ public class FileUploadController {
     @ResponseBody
     @MethodLog
     public Object upload(@RequestPart("file") MultipartFile file, HttpServletRequest request) {
+        if(file.isEmpty()){
+            return "error";
+        }
         String name = file.getOriginalFilename();
         request.getSession().setAttribute("upFile", name);
         String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);

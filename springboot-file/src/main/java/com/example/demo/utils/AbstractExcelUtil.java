@@ -2,6 +2,7 @@ package com.example.demo.utils;
 
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.utils.StringUtil;
+import com.google.common.net.HttpHeaders;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.*;
 
@@ -112,9 +113,9 @@ public abstract class AbstractExcelUtil {
         String codedFileName = java.net.URLEncoder.encode(fileName, "UTF-8");
         if (agent.contains(FIREFOX)) {
             response.setCharacterEncoding("utf-8");
-            response.setHeader("content-disposition", "attachment;filename=" + new String(fileName.getBytes(), StandardCharsets.ISO_8859_1) + ".xlsx");
+            response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + new String(fileName.getBytes(), StandardCharsets.ISO_8859_1) + ".xlsx");
         } else {
-            response.setHeader("content-disposition", "attachment;filename=" + codedFileName + ".xlsx");
+            response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + codedFileName + ".xlsx");
         }
         workbook.write(response.getOutputStream());
     }

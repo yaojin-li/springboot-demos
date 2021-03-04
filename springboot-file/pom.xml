@@ -84,6 +84,11 @@
             <version>1.9.6</version>
         </dependency>
 
+        <!-- 模板引擎 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
         <!--EasyPoi导入导出-->
         <dependency>
