@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+mybatis-plus:
+  mapper-locations: classpath:com/example/demo/base/mapping/*.xml
+
+server:
+  port: 8091
+  servlet:
+    context-path: /
