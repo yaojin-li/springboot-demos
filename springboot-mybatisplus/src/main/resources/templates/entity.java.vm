@@ -14,17 +14,23 @@ import lombok.Data;
 #end
 
 /**
- * @auther ${author}
- * @create ${cfg.dateTime}
- * @describe $!{table.comment}实体类
+ * @Description: ${entity}实体类
+ * --------------------------------------
+ * @ClassName: ${entity}.java
+ * @Date: ${cfg.dateTime}
+ * @SoftWare: IntelliJ IDEA
+ * --------------------------------------
+ * @Author: ${author}
+ * @Contact: ${cfg.contact}
  */
+
 #if(${entityLombokModel})
 @Data
 #end
 @TableName("${table.name}")
 #if(${swagger2})
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel(value = "${entity}对象", description = "$!{table.comment}")
+@ApiModel(value = "${entity}对象", description = "${entity}对象")
 #end
 #if(${superEntityClass})
 public class ${entity} extends ${superEntityClass}#if(${activeRecord})<${entity}>#end {
@@ -52,33 +58,33 @@ private static final long serialVersionUID=1L;
     #end
     #if(${field.keyFlag})
     ## 主键
-        #if(${field.keyIdentityFlag})
-        @TableId(value = "${field.name}", type = IdType.AUTO)
-        #elseif(!$null.isNull(${idType}) && "$!idType" != "")
-        @TableId(value = "${field.name}", type = IdType.${idType})
-        #elseif(${field.convert})
-        @TableId("${field.name}")
-        #end
+    #if(${field.keyIdentityFlag})
+    @TableId(value = "${field.name}", type = IdType.AUTO)
+    #elseif(!$null.isNull(${idType}) && "$!idType" != "")
+    @TableId(value = "${field.name}", type = IdType.${idType})
+    #elseif(${field.convert})
+    @TableId("${field.name}")
+    #end
     ## 普通字段
     #elseif(${field.fill})
     ## -----  存在字段填充设置  -----
-        #if(${field.convert})
-        @TableField(value = "${field.name}", fill = FieldFill.${field.fill})
-        #else
-        @TableField(fill = FieldFill.${field.fill})
-        #end
+    #if(${field.convert})
+    @TableField(value = "${field.name}", fill = FieldFill.${field.fill})
+    #else
+    @TableField(fill = FieldFill.${field.fill})
+    #end
     #else
     @TableField("${field.name}")
     #end
-## 乐观锁注解
+    ## 乐观锁注解
     #if(${versionFieldName}==${field.name})
     @Version
     #end
-## 逻辑删除注解
+    ## 逻辑删除注解
     #if(${logicDeleteFieldName}==${field.name})
     @TableLogic
     #end
-private ${field.propertyType} ${field.propertyName};
+    private ${field.propertyType} ${field.propertyName};
 #end
 ## ---------- END 字段循环遍历 ----------
 

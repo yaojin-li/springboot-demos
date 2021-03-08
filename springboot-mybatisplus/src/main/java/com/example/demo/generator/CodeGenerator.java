@@ -41,14 +41,29 @@ public class CodeGenerator {
      */
     public static final String AUTHOR = "lixj";
 
+    /**
+     * 数据库 URL
+     */
     public static final String JDBC_MYSQL_URL = "jdbc:mysql://localhost:3306/employees?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
 
+    /**
+     * 数据库驱动
+     */
     public static final String JDBC_DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
 
+    /**
+     * 数据库连接用户名
+     */
     public static final String JDBC_USERNAME = "root";
 
-    public static final String JDBC_PASSWORD = "123456789";
+    /**
+     * 数据库连接密码
+     */
+    public static final String JDBC_PASSWORD = "123456";
 
+    /**
+     * 代码生成存放的包
+     */
     public static final String PARENT_PACKAGE = "com.generator.code";
 
     /**
@@ -190,10 +205,9 @@ public class CodeGenerator {
      */
     public static TemplateConfig templateConfig() {
         TemplateConfig tc = new TemplateConfig();
-        // templates/entity.java 模板路径配置，默认在templates目录下，.vm 后缀不用加
-        // 使用自定义模板生成实体类
+        // 使用自定义模板生成实体类，模板路径配置：templates/entity.java
+        // 默认加载templates目录下的模板文件，.vm 后缀不用加
         tc.setEntity("templates/entity.java");
-        tc.setXml("");
         return tc;
     }
 

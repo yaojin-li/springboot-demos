@@ -4,14 +4,19 @@ import ${package.Entity}.${entity};
 import ${superMapperClassPackage};
 
 /**
- * @auther ${author}
- * @create ${cfg.dateTime}
- * @describe $!{table.comment}mapper类1
+ * @Description:
+ * --------------------------------------
+ * @ClassName: ${table.mapperName}.java
+ * @Date: ${cfg.dateTime}
+ * @SoftWare: IntelliJ IDEA
+ * --------------------------------------
+ * @Author: ${author}
+ * @Contact: ${cfg.contact}
  */
 #if(${kotlin})
 interface ${table.mapperName} : ${superMapperClass}<${entity}>
 #else
 public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
 
-        }
+}
 #end
