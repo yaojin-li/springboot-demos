@@ -1,0 +1,22 @@
+package ${package.Service};
+
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
+
+/**
+ * @Description:
+ * --------------------------------------
+ * @ClassName: ${table.serviceName}.java
+ * @Date: ${cfg.dateTime}
+ * @SoftWare: IntelliJ IDEA
+ * --------------------------------------
+ * @Author: ${author}
+ * @Contact: ${cfg.contact}
+ */
+#if(${kotlin})
+interface ${table.serviceName} : ${superServiceClass}<${entity}>
+#else
+public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
+
+}
+#end

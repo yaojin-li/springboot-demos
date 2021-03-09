@@ -61,7 +61,7 @@ public class DynamicDataSourceConfig {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(dynamicDataSource(localDataSource, masterDataSource, slaveDataSource));
         bean.setMapperLocations(new PathMatchingResourcePatternResolver()
-                .getResources(environment.getRequiredProperty("mybatis.mapper-locations")));
+                .getResources(environment.getRequiredProperty("mybatis-plus.mapper-locations")));
         return bean.getObject();
     }
 

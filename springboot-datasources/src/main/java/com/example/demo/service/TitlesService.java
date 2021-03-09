@@ -1,18 +1,18 @@
 package com.example.demo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.demo.base.vo.Images;
+import com.example.demo.base.vo.Titles;
 
 /**
  * @Description:
  * --------------------------------------
- * @ClassName: ImagesService.java
- * @Date: 2021/03/09 12:14:47
+ * @ClassName: TitlesService.java
+ * @Date: 2021/03/09 11:54:06
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  */
-public interface ImagesService extends IService<Images> {
+public interface TitlesService extends IService<Titles> {
 
 }

@@ -1,22 +1,22 @@
 package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.demo.base.dao.VideosMapper;
-import com.example.demo.base.vo.Videos;
-import com.example.demo.service.VideosService;
+import com.example.demo.base.dao.TitlesMapper;
+import com.example.demo.base.vo.Titles;
+import com.example.demo.service.TitlesService;
 import org.springframework.stereotype.Service;
 
 /**
  * @Description:
  * --------------------------------------
- * @ClassName: VideosServiceImpl.java
- * @Date: 2021/03/09 12:10:29
+ * @ClassName: TitlesServiceImpl.java
+ * @Date: 2021/03/09 11:54:06
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  */
 @Service
-public class VideosServiceImpl extends ServiceImpl<VideosMapper, Videos> implements VideosService {
+public class TitlesServiceImpl extends ServiceImpl<TitlesMapper, Titles> implements TitlesService {
 
 }

@@ -1,96 +1,89 @@
 package com.example.demo.base.vo;
 
-import java.io.Serializable;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+/**
+ * @Description: Videos实体类
+ * --------------------------------------
+ * @ClassName: Videos.java
+ * @Date: 2021/03/09 12:10:29
+ * @SoftWare: IntelliJ IDEA
+ * --------------------------------------
+ * @Author: lixj
+ * @Contact: lixj_zj@163.com
+ */
+
+@Data
+@TableName("videos" )
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@ApiModel(value = "Videos对象" , description = "Videos对象" )
 public class Videos implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "视频ID" )
+    @TableId(value = "id" , type = IdType.AUTO)
     private Integer id;
 
+    @ApiModelProperty(value = "视频名称" )
+    @TableField("TITLE" )
     private String title;
 
+    @ApiModelProperty(value = "视频类型" )
+    @TableField("TYPE" )
     private String type;
 
+    @ApiModelProperty(value = "视频唯一ID" )
+    @TableField("UUID" )
     private String uuid;
 
+    @ApiModelProperty(value = "表备注" )
+    @TableField("REMARK" )
     private String remark;
 
-    private Date createTime;
+    @ApiModelProperty(value = "创建时间" )
+    @TableField("CREATE_TIME" )
+    private LocalDateTime createTime;
 
-    private Date updateTime;
+    @ApiModelProperty(value = "更新时间" )
+    @TableField("UPDATE_TIME" )
+    private LocalDateTime updateTime;
 
+    @ApiModelProperty(value = "扩展字段1" )
+    @TableField("NOTE1" )
     private String note1;
 
+    @ApiModelProperty(value = "扩展字段2" )
+    @TableField("NOTE2" )
     private String note2;
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public static final String ID = "ID";
 
-    public String getTitle() {
-        return title;
-    }
+    public static final String TITLE = "TITLE";
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+    public static final String TYPE = "TYPE";
 
-    public String getType() {
-        return type;
-    }
+    public static final String UUID = "UUID";
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
-    }
+    public static final String REMARK = "REMARK";
 
-    public String getUuid() {
-        return uuid;
-    }
+    public static final String CREATE_TIME = "CREATE_TIME";
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid == null ? null : uuid.trim();
-    }
+    public static final String UPDATE_TIME = "UPDATE_TIME";
 
-    public String getRemark() {
-        return remark;
-    }
+    public static final String NOTE1 = "NOTE1";
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
+    public static final String NOTE2 = "NOTE2";
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getNote1() {
-        return note1;
-    }
-
-    public void setNote1(String note1) {
-        this.note1 = note1 == null ? null : note1.trim();
-    }
-
-    public String getNote2() {
-        return note2;
-    }
-
-    public void setNote2(String note2) {
-        this.note2 = note2 == null ? null : note2.trim();
-    }
 }

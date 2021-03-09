@@ -1,0 +1,22 @@
+package ${package.Mapper};
+
+import ${package.Entity}.${entity};
+import ${superMapperClassPackage};
+
+/**
+ * @Description:
+ * --------------------------------------
+ * @ClassName: ${table.mapperName}.java
+ * @Date: ${cfg.dateTime}
+ * @SoftWare: IntelliJ IDEA
+ * --------------------------------------
+ * @Author: ${author}
+ * @Contact: ${cfg.contact}
+ */
+#if(${kotlin})
+interface ${table.mapperName} : ${superMapperClass}<${entity}>
+#else
+public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
+
+}
+#end

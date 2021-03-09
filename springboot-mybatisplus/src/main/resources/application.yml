@@ -58,9 +58,6 @@ spring:
         #启用
         enabled: true
 
-#mybatis:
-#  mapper-locations: classpath:mybatis/mappings/*.xml
-
 mybatis-plus:
   mapper-locations: classpath:mybatis/mappings/*.xml
 

@@ -73,9 +73,6 @@ spring:
         #启用
         enabled: true
 
-mybatis:
-  mapper-locations: classpath:mybatis/mapping/*.xml
-
 server:
   port: 8098
   servlet:
@@ -83,3 +80,6 @@ server:
 
 logging:
   config: classpath:log4j2-dev.yml
+
+mybatis-plus:
+  mapper-locations: classpath:mapping/*.xml
