@@ -59,7 +59,7 @@ public class CodeGenerator {
     /**
      * 数据库连接密码
      */
-    public static final String JDBC_PASSWORD = "123456";
+    public static final String JDBC_PASSWORD = "123456789";
 
     /**
      * 代码生成存放的包
@@ -70,6 +70,32 @@ public class CodeGenerator {
      * 联系方式
      */
     public static final String CONTACT = "lixj_zj@163.com";
+
+
+    public static void main(String[] args) {
+        AutoGenerator generator = new AutoGenerator();
+        // 全局变量配置
+        generator.setGlobalConfig(globalConfig());
+
+        // 数据源配置
+        generator.setDataSource(dataSourceConfig());
+
+        // 包配置
+        generator.setPackageInfo(packageConfig());
+
+        // 自定义配置
+        generator.setCfg(injectionConfig());
+
+        // 配置模板
+        generator.setTemplate(templateConfig());
+
+        // 数据库表配置
+        generator.setStrategy(strategyConfig());
+
+        // 模板引擎
+        generator.setTemplateEngine(new VelocityTemplateEngine());
+        generator.execute();
+    }
 
     /**
      * 自定义配置
@@ -106,31 +132,6 @@ public class CodeGenerator {
 //        cfg.setFileOutConfigList(focList);
 
         return cfg;
-    }
-
-    public static void main(String[] args) {
-        AutoGenerator generator = new AutoGenerator();
-        // 全局变量配置
-        generator.setGlobalConfig(globalConfig());
-
-        // 数据源配置
-        generator.setDataSource(dataSourceConfig());
-
-        // 包配置
-        generator.setPackageInfo(packageConfig());
-
-        // 自定义配置
-        generator.setCfg(injectionConfig());
-
-        // 配置模板
-        generator.setTemplate(templateConfig());
-
-        // 数据库表配置
-        generator.setStrategy(strategyConfig());
-
-        // 模板引擎
-        generator.setTemplateEngine(new VelocityTemplateEngine());
-        generator.execute();
     }
 
     /**

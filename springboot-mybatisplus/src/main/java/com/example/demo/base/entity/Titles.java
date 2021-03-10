@@ -1,26 +1,21 @@
-package com.generator.code.entity;
+package com.example.demo.base.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-
-import java.time.LocalDate;
-
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
 
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.annotation.*;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
+import java.time.LocalDate;
 
 /**
  * @Description: Titles实体类
  * --------------------------------------
  * @ClassName: Titles.java
- * @Date: 2021/03/08 12:12:41
+ * @Date: 2021/03/10 22:58:38
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
@@ -28,23 +23,23 @@ import lombok.Data;
  */
 
 @Data
-@TableName("titles" )
+@TableName("titles")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel(value = "Titles对象" , description = "Titles对象" )
+@ApiModel(value = "Titles对象", description = "Titles对象")
 public class Titles implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "emp_no" , type = IdType.AUTO)
+    @TableId(value = "emp_no", type = IdType.AUTO)
     private Integer empNo;
 
-    @TableField("title" )
+    @TableField("title")
     private String title;
 
-    @TableField("from_date" )
+    @TableField("from_date")
     private LocalDate fromDate;
 
-    @TableField("to_date" )
+    @TableField("to_date")
     private LocalDate toDate;
 
 

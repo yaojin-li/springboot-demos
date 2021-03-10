@@ -3,7 +3,7 @@ package com.example.demo.base.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.demo.base.vo.Salaries;
+import com.example.demo.base.entity.Salaries;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.cursor.Cursor;
 
@@ -16,13 +16,14 @@ import java.util.Map;
  * */
 public interface SalariesMapper extends BaseMapper<Salaries> {
 
-    int selectAllCount();
-
     /**
      * 测试mybatis流式查询（Cursor）
      * */
     Cursor<Salaries> cursorTest(@Param("limit") int limit);
 
+    /**
+     * 测试mybatis分页查询
+     * */
     List<Map<String, Object>> selectInfo(@Param("page") Page<Salaries> page,
                                          @Param("condition") Map<String, Object> condition);
 

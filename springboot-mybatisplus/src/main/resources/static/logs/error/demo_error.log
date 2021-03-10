@@ -1,0 +1,71 @@
+[ERROR] 2021-03-07 21:28:18.564 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "templates-generator/entity.java.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]
+[ERROR] 2021-03-07 21:29:25.303 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "templates-generator/entity.java.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]
+[ERROR] 2021-03-07 21:30:13.357 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "/templates-generator/entity.java.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]
+[ERROR] 2021-03-07 21:30:27.217 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "/templates-generator/entity.java.vm.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]
+[ERROR] 2021-03-07 21:31:19.355 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "D:\\ZX_workspace\\springboot-demos\\springboot-mybatisplus\\src\\main\\resources\\templates-generator\\entity.java.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+Warning: The name contains backslash ("\") instead of slash ("/"); template names should use slash only.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]
+[ERROR] 2021-03-07 21:32:15.205 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "entity.java.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]
+[ERROR] 2021-03-07 21:32:26.250 [com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.main:131] - 无法创建文件，请检查配置信息！
+freemarker.template.TemplateNotFoundException: Template not found for name "/entity.java.ftl".
+The name was interpreted by this TemplateLoader: ClassTemplateLoader(resourceLoaderClass=com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine, basePackagePath="/").
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2869) ~[freemarker-2.3.30.jar:2.3.30]
+	at freemarker.template.Configuration.getTemplate(Configuration.java:2671) ~[freemarker-2.3.30.jar:2.3.30]
+	at com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine.writer(FreemarkerTemplateEngine.java:50) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.writerFile(AbstractTemplateEngine.java:137) ~[mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.engine.AbstractTemplateEngine.batchOutput(AbstractTemplateEngine.java:91) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.baomidou.mybatisplus.generator.AutoGenerator.execute(AutoGenerator.java:106) [mybatis-plus-generator-3.4.1.jar:3.4.1]
+	at com.example.demo.generator.MyBatisPlusGenerator.main(MyBatisPlusGenerator.java:151) [classes/:?]

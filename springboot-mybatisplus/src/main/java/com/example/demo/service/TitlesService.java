@@ -1,13 +1,13 @@
-package com.generator.code.service;
+package com.example.demo.service;
 
-import com.generator.code.entity.Titles;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.base.entity.Titles;
 
 /**
  * @Description:
  * --------------------------------------
  * @ClassName: TitlesService.java
- * @Date: 2021/03/08 12:12:41
+ * @Date: 2021/03/10 22:58:38
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj

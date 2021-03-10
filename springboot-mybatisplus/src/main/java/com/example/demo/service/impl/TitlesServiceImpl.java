@@ -1,16 +1,16 @@
-package com.generator.code.service.impl;
+package com.example.demo.service.impl;
 
-import com.generator.code.entity.Titles;
-import com.generator.code.mapper.TitlesMapper;
-import com.generator.code.service.TitlesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.base.dao.TitlesMapper;
+import com.example.demo.base.entity.Titles;
+import com.example.demo.service.TitlesService;
 import org.springframework.stereotype.Service;
 
 /**
  * @Description:
  * --------------------------------------
  * @ClassName: TitlesServiceImpl.java
- * @Date: 2021/03/08 12:12:41
+ * @Date: 2021/03/10 22:58:38
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj

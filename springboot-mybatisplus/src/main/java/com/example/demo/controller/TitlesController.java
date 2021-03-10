@@ -1,15 +1,14 @@
-package com.generator.code.controller;
+package com.example.demo.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description:
  * --------------------------------------
  * @ClassName: TitlesController.java
- * @Date: 2021/03/08 12:12:41
+ * @Date: 2021/03/10 22:58:38
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj

@@ -1,12 +1,13 @@
-package com.generator.code.mapper;
+package com.example.demo.base.dao;
 
-import com.generator.code.entity.Titles;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.demo.base.entity.Titles;
 
 /**
- * @Description: --------------------------------------
+ * @Description:
+ * --------------------------------------
  * @ClassName: TitlesMapper.java
- * @Date: 2021/03/08 12:12:41
+ * @Date: 2021/03/10 22:58:38
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
