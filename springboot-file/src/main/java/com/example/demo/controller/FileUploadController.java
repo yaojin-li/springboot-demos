@@ -41,13 +41,85 @@ public class FileUploadController {
     private ExcelService excelService;
 
     /**
-     * 上传单个文件
-     */
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+     * @RequestParam注解与@RequestBody注解的区别：
+     * @RequestParam注解
+     * 1.post请求时，body中为form-data或x-www-form-urlencoded，可以传输参数
+     * 2.get请求正常
+     * @RequestBody注解
+     * 1.post请求，只能在body的raw中设置json格式的入参
+     * */
+    @RequestMapping(value = "/upload5", method = RequestMethod.POST)
     @ResponseBody
     @MethodLog
-    public Object upload(@RequestPart("file") MultipartFile file, HttpServletRequest request) {
-        if(file.isEmpty()){
+    public void upload5( @RequestBody JSONObject paramsbody, @RequestParam("params") String params){
+        log.info(paramsbody.toJSONString());
+        log.info(params);
+    }
+
+    /**
+     * 上传单个文件 + 传参（@RequestBody 注解传参）
+     * */
+    @RequestMapping(value = "/upload4", method = RequestMethod.POST)
+    @ResponseBody
+    @MethodLog
+    public void upload4(@RequestPart(value = "file") MultipartFile file, @RequestParam("params") String params){
+        log.info(String.format("文件上传，参数为[%s]", params));
+        String name = file.getOriginalFilename();
+        String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
+        try {
+            file.transferTo(new File(fileSavePath + name));
+        } catch (Exception e) {
+            log.error("上传单个文件出错！", e);
+        }
+    }
+
+    /**
+     * 上传单个文件 + 传参（@RequestBody 注解传参）
+     * TODO 此接口参数设计异常！！！
+     * TODO 请求中不能同时含有@RequestPart与@RequestBody注解。否则解析body中的内容时出现HttpMediaTypeNotSupportedException异常。
+     * */
+    @RequestMapping(value = "/upload3", method = RequestMethod.POST)
+    @ResponseBody
+    @MethodLog
+    public void upload3(@RequestPart(value = "file") MultipartFile file, @RequestBody JSONObject params){
+        log.info(String.format("文件上传，参数为[%s]", params.toJSONString()));
+        String name = file.getOriginalFilename();
+        String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
+        try {
+            file.transferTo(new File(fileSavePath + name));
+        } catch (Exception e) {
+            log.error("上传单个文件出错！", e);
+        }
+    }
+
+    /**
+     * 上传单个文件 + 传参（@RequestPart 注解传参）
+     * */
+    @RequestMapping(value = "/upload2", method = RequestMethod.POST)
+    @ResponseBody
+    @MethodLog
+    public void upload2(@RequestPart("file") MultipartFile file, @RequestPart("parameter") String parameter){
+        log.info(String.format("文件上传，参数为[%s]", parameter));
+        String fileSavePath = FileUtil.getFileUploadPath(fileUploadPath);
+        String name = file.getOriginalFilename();
+        try {
+            file.transferTo(new File(fileSavePath + name));
+        } catch (Exception e) {
+            log.error("上传单个文件出错！", e);
+        }
+    }
+
+
+    /**
+     * 上传单个文件 + 传参（HttpServletRequest方式）
+     */
+    @RequestMapping(value = "/upload1", method = RequestMethod.POST)
+    @ResponseBody
+    @MethodLog
+    public Object upload1(@RequestPart("file") MultipartFile file, HttpServletRequest request) {
+        String parameter = request.getParameter("parameter");
+        log.info(String.format("文件上传，参数为[%s]", parameter));
+        if (file.isEmpty()) {
             return "error";
         }
         String name = file.getOriginalFilename();
@@ -71,7 +143,7 @@ public class FileUploadController {
     @RequestMapping(value = "/uploadMulti", method = RequestMethod.POST)
     @ResponseBody
     @MethodLog
-    public Object uploadMulti(@RequestPart("file") MultipartFile[] files, HttpServletRequest request) {
+    public Object uploadMulti(@RequestPart("file") MultipartFile[] files) {
         HashMap<String, Object> map = new HashMap<>();
         for (MultipartFile file : files) {
             String name = file.getOriginalFilename();
