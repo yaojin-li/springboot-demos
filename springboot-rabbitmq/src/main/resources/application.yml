@@ -1,4 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/employees?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: ENC(D/85hit1C4cVwwHdEZ/jemVjhxMJO2GV)
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  # rabbitmq 单机配置
+  rabbitmq:
+    host: 192.168.100.133
+    port: 5672
+    username: root
+    password: root
+
+## rabbitmq 集群配置
+#spring:
+#  rabbitmq:
+#    host: ip1:port1, ip2:port2, ip3:port3
+#    username: root
+#    password: root
+
+
 server:
   port: 8095
   servlet:
     context-path: /
+
+mybatis-plus:
+  mapper-locations: classpath:com/example/demo/base/dao/*.xml
