@@ -7,23 +7,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: RedisClusterController.java
- * @Date: 2020/10/26 22:32
+ * @ClassName: SingleController.java
+ * @Date: 2021/3/15 23:52
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
 @RestController
-public class RedisSentinelController {
+public class SingleController {
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-    @RequestMapping("/redisSentinelTest")
+    @RequestMapping("/singleTest")
     public void demo() {
-        redisTemplate.opsForValue().set("Sentinel", "测试Sentinel");
-        String test = redisTemplate.opsForValue().get("Sentinel").toString();
+        redisTemplate.opsForValue().set("Single", "测试Single");
+        String test = redisTemplate.opsForValue().get("Single").toString();
         System.out.println(test);
     }
 }
