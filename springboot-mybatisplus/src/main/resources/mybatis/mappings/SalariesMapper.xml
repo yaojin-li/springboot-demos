@@ -32,4 +32,14 @@
         </if>
     </select>
 
+    <select id="compareString" resultType="map">
+        select * from salaries
+        where 1=1
+        <!-- mybatis xml sql 判断比较字符串作为条件 -->
+        <if test="order.statusCode=='all'.toString()">
+            AND d.status_code='3'
+        </if>
+    </select>
+
+
 </mapper>
