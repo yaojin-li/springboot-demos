@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: DemoController.java
+ * @ClassName: MongoController.java
  * @Date: 2020/11/6 19:33
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -18,7 +18,7 @@ import java.util.List;
  * @Contact: lixj_zj@163.com
  **/
 @RestController
-public class DemoController {
+public class MongoController {
 
     /**
      * 使用 springframework 中的MongoDB模板创建连接
@@ -34,9 +34,9 @@ public class DemoController {
         for (int i = 0; i < result.size(); i++) {
             System.out.println(result.get(i).getClass());
             System.out.println(result.get(i).getId());
-            System.out.println(result.get(i).getSize());
+            System.out.println(result.get(i).getCreateTime());
             System.out.println(result.get(i).getTitle());
-            System.out.println(result.get(i).getType());
+            System.out.println(result.get(i).getImgSize());
         }
 
     }

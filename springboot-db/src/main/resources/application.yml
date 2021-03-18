@@ -1,10 +1,26 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springdemo?useUnicode=true&characterEncoding=UTF8&useSSL=true&serverTimezone=Asia/Shanghai
-    username: root
-    password: 123456
-    type: com.alibaba.druid.pool.DruidDataSource
+#  # Oracle
+#  datasource:
+#    driver-class-name: oracle.jdbc.OracleDriver
+#    url: jdbc:oracle:thin:@//localhost:1521/orcl
+#    username: DEMO_USER
+#    password: 123456
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+#  # MySQL
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/springdemo?useUnicode=true&characterEncoding=UTF8&useSSL=true&serverTimezone=Asia/Shanghai
+#    username: root
+#    password: 123456
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/spring_demo
+#      # 格式：
+#      # uri: mongodb://用户名:密码@IP地址:端口号/数据库名
+#      # 例：uri: mongodb://user:123456@127.0.0.1:27017/spring_demo
 
     # druid 数据源配置
     druid:
