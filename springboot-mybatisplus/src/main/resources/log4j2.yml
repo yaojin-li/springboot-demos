@@ -81,7 +81,7 @@ Configuration:
     # 对特定路径下的文件输出针对性日志
     # 如下：对mapper中的mapping文件输出SQL debug日志
     Logger:
-    - name: com.example.demo.base.dao.SalariesMapper
+    - name: com.example.demo.base.dao
       level: debug
       additivity: false
       AppenderRef:

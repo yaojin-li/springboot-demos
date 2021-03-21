@@ -4,7 +4,12 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.base.dao.TitlesMapper;
 import com.example.demo.base.entity.Titles;
 import com.example.demo.service.TitlesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Description:
@@ -19,4 +24,51 @@ import org.springframework.stereotype.Service;
 @Service
 public class TitlesServiceImpl extends ServiceImpl<TitlesMapper, Titles> implements TitlesService {
 
+    @Autowired
+    private TitlesMapper titlesMapper;
+
+    @Override
+    public Object selectByMap(Map<String, Object> map) {
+        /**
+         * 封装方法
+         * */
+        List<Titles> titles = titlesMapper.selectByMap(map);
+
+        /**
+         * map传参
+         * */
+        return titlesMapper.selectByNewMap(map);
+    }
+
+    @Override
+    public Object selectByObj(Titles titles) {
+        /**
+         * 对象传参
+         * */
+        return titlesMapper.selectByObj(titles);
+    }
+
+    @Override
+    public Object paramBasicType(Integer no, String title) {
+        /**
+         * 基本类型传参
+         * */
+        return titlesMapper.paramBasicType(no, title);
+    }
+
+    @Override
+    public Object paramList(List<String> list) {
+        /**
+         * list 传参
+         * */
+        return titlesMapper.paramList(list);
+    }
+
+    @Override
+    public Object queryCompare(Map<String, Object> map) {
+        /**
+         * 比较参数作为条件
+         * */
+        return titlesMapper.queryCompare(map);
+    }
 }

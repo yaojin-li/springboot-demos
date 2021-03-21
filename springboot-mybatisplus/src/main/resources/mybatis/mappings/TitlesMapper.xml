@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.base.dao.TitlesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.base.entity.Titles">
+        <id column="emp_no" property="empNo"/>
+        <result column="title" property="title"/>
+        <result column="from_date" property="fromDate"/>
+        <result column="to_date" property="toDate"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        emp_no, title, from_date, to_date
+    </sql>
+
+    <select id="selectByNewMap" parameterType="java.util.Map" resultType="com.example.demo.base.entity.Titles">
+        select * from titles
+        where 1=1
+        <if test="conditionMap.title != null and conditionMap.title != ''">
+            and title = #{conditionMap.title}
+        </if>
+        <if test="conditionMap.emp_no != null and conditionMap.emp_no != ''">
+            and emp_no = #{conditionMap.emp_no}
+        </if>
+    </select>
+
+    <select id="selectByObj" parameterType="java.util.Objects" resultType="com.example.demo.base.entity.Titles">
+        select * from titles
+        where 1=1
+        <if test="conditionObj.title != null and conditionObj.title != ''">
+            and title = #{conditionObj.title}
+        </if>
+        <if test="conditionObj.empNo != null and conditionObj.empNo != ''">
+            and emp_no = #{conditionObj.empNo}
+        </if>
+    </select>
+
+    <!-- 基本类型查询不指定参数类型parameterType；多个基本类型查询采用对象或map方式 -->
+    <select id="paramBasicType" resultType="com.example.demo.base.entity.Titles">
+        select * from titles
+        where title like concat('%', #{title}, '%')
+        and emp_no = #{no}
+    </select>
+
+    <select id="paramList" resultType="com.example.demo.base.entity.Titles">
+        select * from titles s where s.emp_no in
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <select id="queryCompare" parameterType="java.util.Objects" resultType="com.example.demo.base.entity.Titles">
+        select * from titles
+        where 1=1
+        -- 当入参中的title为Staff时，触发if中的条件
+        <if test="conditionMap.title == 'Staff'.toString() ">
+            and emp_no = #{conditionMap.emp_no}
+        </if>
+        limit 10
+    </select>
+
+</mapper>

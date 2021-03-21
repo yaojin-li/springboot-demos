@@ -3,6 +3,9 @@ package com.example.demo.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.base.entity.Titles;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Description:
  * --------------------------------------
@@ -15,4 +18,13 @@ import com.example.demo.base.entity.Titles;
  */
 public interface TitlesService extends IService<Titles> {
 
+    Object selectByMap(Map<String, Object> map);
+
+    Object selectByObj(Titles titles);
+
+    Object paramBasicType(Integer no, String title);
+
+    Object paramList(List<String> list);
+
+    Object queryCompare(Map<String, Object> map);
 }
