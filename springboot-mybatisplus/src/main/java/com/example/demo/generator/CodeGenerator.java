@@ -21,6 +21,8 @@ import java.util.*;
 
 /**
  * @Description: mybatis plus generator
+ * 注：
+ * 1. 当pom文件中将resources文件夹配置为资源扫描时，将使用mybatisplus默认模板生成文件。
  * --------------------------------------
  * @ClassName: CodeGenerator.java
  * @Date: 2021/3/7 21:40
@@ -44,7 +46,7 @@ public class CodeGenerator {
     /**
      * 数据库 URL
      */
-    public static final String JDBC_MYSQL_URL = "jdbc:mysql://localhost:3306/employees?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
+    public static final String JDBC_MYSQL_URL = "jdbc:mysql://localhost:3306/flash_sale?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
 
     /**
      * 数据库驱动
