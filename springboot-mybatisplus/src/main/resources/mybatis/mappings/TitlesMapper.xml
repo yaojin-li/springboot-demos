@@ -10,6 +10,9 @@
         <result column="to_date" property="toDate"/>
     </resultMap>
 
+    <!-- 开启二级缓存 -->
+    <cache/>
+
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         emp_no, title, from_date, to_date

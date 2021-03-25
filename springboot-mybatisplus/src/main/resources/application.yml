@@ -60,6 +60,9 @@ spring:
 
 mybatis-plus:
   mapper-locations: classpath:mybatis/mappings/*.xml
+  # 显示开启mybatis二级缓存
+  configuration:
+    cache-enabled: true
 
 server:
   port: 8095
