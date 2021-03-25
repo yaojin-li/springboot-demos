@@ -3,11 +3,14 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.annotation.MethodLog;
 import com.example.demo.base.dao.SalariesMapper;
 import com.example.demo.base.entity.Salaries;
 import com.example.demo.service.SalariesService;
+import com.sun.org.apache.xerces.internal.util.EntityResolverWrapper;
 import org.apache.ibatis.cursor.Cursor;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -39,7 +42,7 @@ public class SalariesController {
      * 测试mybatis plus基础功能。
      * 尽量以封装方法调用为主。
      * localhost:8095/salaries/plusTest
-     * */
+     */
     @MethodLog
     @RequestMapping("/plusTest")
     public void mybatisPlusTest() {
@@ -102,14 +105,52 @@ public class SalariesController {
     public List<Salaries> cursorTest(@PathVariable("limit") int limit) throws Exception {
         List<Salaries> result = new ArrayList<>();
         try (
-                SqlSession session = sqlSessionFactory.openSession();
-                Cursor<Salaries> cursor = session.getMapper(SalariesMapper.class).cursorTest(limit);
+                SqlSession sqlSession = sqlSessionFactory.openSession();
+                Cursor<Salaries> cursor = sqlSession.getMapper(SalariesMapper.class).cursorTest(limit);
         ) {
             cursor.forEach(salaries -> {
                 result.add(salaries);
             });
         }
         return result;
+    }
+
+
+    /**
+     * 测试mybatis一级缓存
+     * 在同一个sqlsession中，默认为一级缓存
+     * 增删改 会强制刷新一级缓存
+     * 同一个 SqlSession中, Mybatis会把执行的方法和参数生成缓存的键值，存放在一个 Map 中，后续的键值一样则直接从 Map 中获取数据
+     */
+    @RequestMapping("/cache")
+    @MethodLog
+    public void cacheTest() throws Exception {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SalariesMapper mapper = sqlSession.getMapper(SalariesMapper.class);
+
+        Salaries salaries = mapper.cacheTest(10005, "90392");
+        System.out.println(salaries.toString());
+
+        System.out.println("=============开始同一个 Sqlsession 的第二次查询============");
+
+        Salaries salaries1 = mapper.cacheTest(10005, "90392");
+        System.out.println(salaries1.toString());
+
+        System.out.println(salaries == salaries1);
+
+        System.out.println("=============更新操作，强制刷新一级缓存============");
+        Salaries updateSalarie = new Salaries();
+        updateSalarie.setEmpNo(10006);
+        updateSalarie.setSalary(47518);
+        mapper.updateById(updateSalarie);
+
+        System.out.println("=============刷新一级缓存后，同一个 Sqlsession 的第三次查询============");
+        Salaries salaries2 = mapper.cacheTest(10005, "90392");
+        System.out.println(salaries2.toString());
+
+        System.out.println(salaries == salaries2);
+
+        sqlSession.close();
     }
 
 

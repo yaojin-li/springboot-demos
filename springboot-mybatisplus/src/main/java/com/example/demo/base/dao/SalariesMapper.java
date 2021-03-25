@@ -27,4 +27,9 @@ public interface SalariesMapper extends BaseMapper<Salaries> {
     List<Map<String, Object>> selectInfo(@Param("page") Page<Salaries> page,
                                          @Param("condition") Map<String, Object> condition);
 
+    /**
+     * 测试缓存
+     * */
+    Salaries cacheTest(@Param("empNo") int empNo, @Param("salary") String salary);
+
 }
