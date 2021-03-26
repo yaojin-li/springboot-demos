@@ -4,14 +4,13 @@ import com.alibaba.druid.util.StringUtils;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
-import com.example.demo.constant.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.DateUtil;
-import org.apache.poi.util.StringUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -75,7 +74,7 @@ public class FileUtil {
         JSONObject result = new JSONObject();
         //  try-with-resources
         try (InputStream inputStream = new FileInputStream(file.getAbsoluteFile());
-             HSSFWorkbook workbook = new HSSFWorkbook(inputStream)){
+             HSSFWorkbook workbook = new HSSFWorkbook(inputStream)) {
 
             for (int sheetIndex = 0; sheetIndex < workbook.getNumberOfSheets(); sheetIndex++) {
                 HSSFSheet sheet = workbook.getSheetAt(sheetIndex);
@@ -98,9 +97,10 @@ public class FileUtil {
                     // 遍历每行数据
                     for (int columnIndex = 0; columnIndex < row.getLastCellNum(); columnIndex++) {
                         HSSFCell cell = row.getCell(columnIndex);
-                        Object value = "";
+                        Object value;
 
-                        if (ObjectUtils.isNotNull(cell)) {
+                        // 单元格非空 + 过滤因样式问题误判断空行有数据
+                        if (ObjectUtils.isNotNull(cell) && cell.getCellTypeEnum() != CellType.BLANK) {
                             switch (cell.getCellTypeEnum()) {
                                 case STRING:
                                     value = cell.getStringCellValue();
@@ -128,15 +128,15 @@ public class FileUtil {
                                 default:
                                     value = "";
                             }
-                        }
 
-                        // 获取第一行标题对应的枚举
-                        if (ObjectUtils.isNotEmpty(firstRow.getCell(columnIndex))) {
-                            rowData.put(firstRow.getCell(columnIndex).getStringCellValue(), value);
-                            hasValue = true;
-                        } else {
-                            log.error(String.format("[%s]文件标题中存在空值！", file.getName()));
-                            throw new NullPointerException();
+                            // 获取第一行标题对应的枚举
+                            if (ObjectUtils.isNotEmpty(firstRow.getCell(columnIndex))) {
+                                rowData.put(firstRow.getCell(columnIndex).getStringCellValue(), value);
+                                hasValue = true;
+                            } else {
+                                log.error(String.format("[%s]文件标题中存在空值！", file.getName()));
+                                throw new NullPointerException();
+                            }
                         }
                     }
 
