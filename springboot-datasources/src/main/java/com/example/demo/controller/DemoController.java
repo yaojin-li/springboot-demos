@@ -38,7 +38,7 @@ public class DemoController {
     @RequestMapping("/localTest")
     @MethodLog
     public String localTest(@RequestParam int id) {
-        Videos videos = videosService.getById(id);
+        Videos videos = videosService.selectByPrimaryKey(id);
         log.info(String.format("localTest info...%s", JSONObject.toJSONString(videos)));
         return JSONObject.toJSONString(videos);
     }
@@ -51,7 +51,7 @@ public class DemoController {
     @RequestMapping("/slaveReadTest")
     @MethodLog
     public String slaveReadTest(@RequestParam int id) {
-        Images images = imagesService.getById(id);
+        Images images = imagesService.selectByPrimaryKey(id);
         log.info(String.format("slaveReadTest...%s", JSONObject.toJSONString(images)));
         return JSONObject.toJSONString(images);
     }
@@ -63,11 +63,8 @@ public class DemoController {
      */
     @RequestMapping("/masterCUDTest")
     @MethodLog
-    public boolean masterCUDTest(@RequestParam int id, @RequestParam String remark) {
-        Images images = new Images();
-        images.setId(id);
-        images.setRemark(remark);
-        boolean masterUpdateRes = imagesService.updateById(images);
+    public int masterCUDTest(@RequestParam int id, @RequestParam String remark) {
+        int masterUpdateRes = imagesService.updateByPrimaryKeySelective(id, remark);
         log.info(String.format("masterUpdateRes...%s", masterUpdateRes));
         return masterUpdateRes;
     }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.generator.code.mapper.TitlesMapper">
+<mapper namespace="com.example.demo.base.dao.TitlesMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.generator.code.entity.Titles">
+    <resultMap id="BaseResultMap" type="com.example.demo.base.vo.Titles">
         <id column="emp_no" property="empNo"/>
         <result column="title" property="title"/>
         <result column="from_date" property="fromDate"/>

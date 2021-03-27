@@ -16,7 +16,7 @@ spring:
 
     local:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:3306/springdemo?useUnicode=true&characterEncoding=UTF8&useSSL=true&serverTimezone=Asia/Shanghai
+      jdbc-url: jdbc:mysql://localhost:3306/zhulong?useUnicode=true&characterEncoding=UTF8&useSSL=true&serverTimezone=Asia/Shanghai
       username: root
       password: 123456
 
@@ -82,4 +82,4 @@ logging:
   config: classpath:log4j2-dev.yml
 
 mybatis-plus:
-  mapper-locations: classpath:mapping/*.xml
+  mapper-locations: classpath:mybatis/mapping/*.xml

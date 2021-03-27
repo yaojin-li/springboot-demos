@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  * @Description: Videos实体类
  * --------------------------------------
  * @ClassName: Videos.java
- * @Date: 2021/03/09 12:10:29
+ * @Date: 2021/03/27 11:10:15
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
@@ -24,47 +24,67 @@ import java.time.LocalDateTime;
  */
 
 @Data
-@TableName("videos" )
+@TableName("videos")
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@ApiModel(value = "Videos对象" , description = "Videos对象" )
+@ApiModel(value = "Videos对象", description = "Videos对象")
 public class Videos implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "视频ID" )
-    @TableId(value = "id" , type = IdType.AUTO)
+    @ApiModelProperty(value = "视频ID")
+    @TableId(value = "ID", type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "视频名称" )
-    @TableField("TITLE" )
+    @ApiModelProperty(value = "视频名称")
+    @TableField("TITLE")
     private String title;
 
-    @ApiModelProperty(value = "视频类型" )
-    @TableField("TYPE" )
+    @ApiModelProperty(value = "视频重命名")
+    @TableField("NEW_TITLE")
+    private String newTitle;
+
+    @ApiModelProperty(value = "视频类型")
+    @TableField("TYPE")
     private String type;
 
-    @ApiModelProperty(value = "视频唯一ID" )
-    @TableField("UUID" )
+    @ApiModelProperty(value = "视频大小")
+    @TableField("SIZE")
+    private Integer size;
+
+    @ApiModelProperty(value = "视频位置")
+    @TableField("POSITION")
+    private String position;
+
+    @ApiModelProperty(value = "视频唯一ID")
+    @TableField("UUID")
     private String uuid;
 
-    @ApiModelProperty(value = "表备注" )
-    @TableField("REMARK" )
-    private String remark;
-
-    @ApiModelProperty(value = "创建时间" )
-    @TableField("CREATE_TIME" )
+    @ApiModelProperty(value = "创建时间")
+    @TableField("CREATE_TIME")
     private LocalDateTime createTime;
 
-    @ApiModelProperty(value = "更新时间" )
-    @TableField("UPDATE_TIME" )
+    @ApiModelProperty(value = "更新时间")
+    @TableField("UPDATE_TIME")
     private LocalDateTime updateTime;
 
-    @ApiModelProperty(value = "扩展字段1" )
-    @TableField("NOTE1" )
+    @ApiModelProperty(value = "视频上传者")
+    @TableField("UPLOADER")
+    private String uploader;
+
+    @ApiModelProperty(value = "表注释")
+    @TableField("DESCRIPTION")
+    private String description;
+
+    @ApiModelProperty(value = "表备注")
+    @TableField("REMARK")
+    private String remark;
+
+    @ApiModelProperty(value = "扩展字段1")
+    @TableField("NOTE1")
     private String note1;
 
-    @ApiModelProperty(value = "扩展字段2" )
-    @TableField("NOTE2" )
+    @ApiModelProperty(value = "扩展字段2")
+    @TableField("NOTE2")
     private String note2;
 
 
@@ -72,15 +92,25 @@ public class Videos implements Serializable {
 
     public static final String TITLE = "TITLE";
 
+    public static final String NEW_TITLE = "NEW_TITLE";
+
     public static final String TYPE = "TYPE";
 
-    public static final String UUID = "UUID";
+    public static final String SIZE = "SIZE";
 
-    public static final String REMARK = "REMARK";
+    public static final String POSITION = "POSITION";
+
+    public static final String UUID = "UUID";
 
     public static final String CREATE_TIME = "CREATE_TIME";
 
     public static final String UPDATE_TIME = "UPDATE_TIME";
+
+    public static final String UPLOADER = "UPLOADER";
+
+    public static final String DESCRIPTION = "DESCRIPTION";
+
+    public static final String REMARK = "REMARK";
 
     public static final String NOTE1 = "NOTE1";
 

@@ -13,6 +13,10 @@ import com.example.demo.base.vo.Images;
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  */
-public interface ImagesService extends IService<Images> {
+public interface ImagesService {
+
+    Images selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Integer id, String remark);
 
 }

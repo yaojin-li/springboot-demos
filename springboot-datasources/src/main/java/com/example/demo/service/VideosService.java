@@ -1,18 +1,18 @@
 package com.example.demo.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.base.vo.Videos;
 
 /**
- * @Description:
- * --------------------------------------
+ * @Description: --------------------------------------
  * @ClassName: VideosService.java
- * @Date: 2021/03/09 12:10:29
+ * @Date: 2020/11/18 18:25
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
- */
-public interface VideosService extends IService<Videos> {
+ **/
+public interface VideosService {
+
+    Videos selectByPrimaryKey(Integer id);
 
 }

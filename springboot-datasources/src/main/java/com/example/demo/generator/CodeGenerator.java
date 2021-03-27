@@ -44,7 +44,7 @@ public class CodeGenerator {
     /**
      * 数据库 URL
      */
-    public static final String JDBC_MYSQL_URL = "jdbc:mysql://192.168.100.133:3306/springdemo?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
+    public static final String JDBC_MYSQL_URL = "jdbc:mysql://localhost:3306/zhulong?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
 
     /**
      * 数据库驱动
@@ -59,7 +59,7 @@ public class CodeGenerator {
     /**
      * 数据库连接密码
      */
-    public static final String JDBC_PASSWORD = "aA123456/";
+    public static final String JDBC_PASSWORD = "123456789";
 
     /**
      * 代码生成存放的包
