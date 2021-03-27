@@ -1,11 +1,14 @@
 package com.example.demo.service.impl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.example.demo.base.entity.Employees;
 import com.example.demo.base.dao.EmployeesMapper;
 import com.example.demo.service.EmployeesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Description:
@@ -27,4 +30,10 @@ public class EmployeesServiceImpl extends ServiceImpl<EmployeesMapper, Employees
     public Employees cacheTest(int id) {
         return employeesMapper.selectById(id);
     }
+
+    @DS("master")
+    public Employees MasterDbTest(int id){
+        return employeesMapper.selectById(id);
+    }
+
 }
