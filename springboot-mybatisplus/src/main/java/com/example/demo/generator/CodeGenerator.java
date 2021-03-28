@@ -46,7 +46,7 @@ public class CodeGenerator {
     /**
      * 数据库 URL
      */
-    public static final String JDBC_MYSQL_URL = "jdbc:mysql://localhost:3306/flash_sale?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
+    public static final String JDBC_MYSQL_URL = "jdbc:mysql://localhost:3306/zhulong?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai";
 
     /**
      * 数据库驱动

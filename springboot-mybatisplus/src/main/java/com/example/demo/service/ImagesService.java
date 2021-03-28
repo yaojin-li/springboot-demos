@@ -1,22 +1,19 @@
 package com.example.demo.service;
 
-import com.example.demo.base.entity.Employees;
+import com.example.demo.base.entity.Images;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * @Description:
  * --------------------------------------
- * @ClassName: EmployeesService.java
- * @Date: 2021/03/26 11:48:08
+ * @ClassName: ImagesService.java
+ * @Date: 2021/03/28 10:56:11
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  */
-public interface EmployeesService extends IService<Employees> {
+public interface ImagesService extends IService<Images> {
 
-    Employees cacheTest(int id);
-
-    Employees othersDbTest(int id);
-
+    Images masterDbTest(int i);
 }
