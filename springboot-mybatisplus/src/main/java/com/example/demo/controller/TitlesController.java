@@ -58,14 +58,25 @@ public class TitlesController {
 
 
     /**
-     * 基本类型传参 & 模糊查询
+     * 基本类型传参
      * 只有一个基本类型参数情况下，可以直接在sql中取值
      */
     @RequestMapping("/paramBasicType")
     public Object paramBasicType() {
         Integer no = new Integer(10005);
-        String title = "taf";
+        String title = "Staff";
         return titlesService.paramBasicType(no, title);
+    }
+
+    /**
+     * 基本类型传参 & 模糊查询
+     * 只有一个基本类型参数情况下，可以直接在sql中取值
+     */
+    @RequestMapping("/paramLike")
+    public Object paramLike() {
+        Integer no = new Integer(10005);
+        String title = "taf";
+        return titlesService.paramLike(no, title);
     }
 
     /**
