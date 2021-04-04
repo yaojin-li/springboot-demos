@@ -48,4 +48,9 @@ public interface TitlesMapper extends BaseMapper<Titles> {
     List<Titles> queryCompare(@Param("conditionMap") Map<String, Object> map);
 
 
+    /**
+     * 模糊搜索
+     * */
+    List<Titles> paramLike(@Param("no") Integer no, @Param("title") String title);
+
 }

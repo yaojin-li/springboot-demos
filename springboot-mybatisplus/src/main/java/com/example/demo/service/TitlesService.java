@@ -27,4 +27,6 @@ public interface TitlesService extends IService<Titles> {
     Object paramList(List<String> list);
 
     Object queryCompare(Map<String, Object> map);
+
+    Object paramLike(Integer no, String title);
 }

@@ -43,7 +43,7 @@
     <!-- 基本类型查询不指定参数类型parameterType；多个基本类型查询采用对象或map方式 -->
     <select id="paramBasicType" resultType="com.example.demo.base.entity.Titles">
         select * from titles
-        where title like concat('%', #{title}, '%')
+        where title like #{title}
         and emp_no = #{no}
     </select>
 
@@ -62,6 +62,12 @@
             and emp_no = #{conditionMap.emp_no}
         </if>
         limit 10
+    </select>
+
+    <select id="paramLike" resultType="com.example.demo.base.entity.Titles">
+        select * from titles
+        where title like #{title}
+        and emp_no = #{no}
     </select>
 
 </mapper>

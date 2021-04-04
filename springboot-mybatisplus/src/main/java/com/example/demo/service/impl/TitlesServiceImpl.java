@@ -12,8 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @Description:
- * --------------------------------------
+ * @Description: --------------------------------------
  * @ClassName: TitlesServiceImpl.java
  * @Date: 2021/03/10 22:58:38
  * @SoftWare: IntelliJ IDEA
@@ -71,4 +70,16 @@ public class TitlesServiceImpl extends ServiceImpl<TitlesMapper, Titles> impleme
          * */
         return titlesMapper.queryCompare(map);
     }
+
+    @Override
+    public Object paramLike(Integer no, String title) {
+        /**
+         * 模糊搜索
+         * 在传参中加入模糊匹配符。
+         * 注：不在XML中设置%，防止SQL注入。
+         * */
+        String titleLike = "%" + title + "%";
+        return titlesMapper.paramLike(no, titleLike);
+    }
+
 }
