@@ -1,4 +1,4 @@
-package com.example.maven_controller;
+package com.example.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
