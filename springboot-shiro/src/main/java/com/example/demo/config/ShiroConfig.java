@@ -33,9 +33,9 @@ public class ShiroConfig {
      */
     @Bean
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
-        DefaultAdvisorAutoProxyCreator defaultAAP = new DefaultAdvisorAutoProxyCreator();
-        defaultAAP.setProxyTargetClass(true);
-        return defaultAAP;
+        DefaultAdvisorAutoProxyCreator creator = new DefaultAdvisorAutoProxyCreator();
+        creator.setProxyTargetClass(true);
+        return creator;
     }
 
     /**
@@ -74,8 +74,22 @@ public class ShiroConfig {
         // 错误页面，认证不通过则跳转
         shiroFilterFactoryBean.setUnauthorizedUrl("/error");
 
-        //
-        Map<String, String> map = new HashMap<>();
+        /**
+         * 配置shiro拦截器链
+         * anon     不需要认证
+         * authc    需要认证
+         * user     验证通过或rememberMe登录的都可以
+         *
+         * 当应用开启了rememberMe时，用户下次访问时可以是一个user，但不会是authc，因为authc是需要重新认证的
+         *
+         * 顺序从上到下，优先级依次降低
+         *
+         * */
+        Map<String, String> map = new HashMap<>(10);
+        // 对所有app路径下的请求不拦截
+        map.put("/app/***", "anon");
+        // 对swagger接口页面的请求不拦截
+        map.put("/swagger-ui.html", "anon");
         // 登出
         map.put("/logout", "logout");
         // 对所有用户认证
