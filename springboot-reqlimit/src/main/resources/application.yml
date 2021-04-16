@@ -1,0 +1,9 @@
+server:
+  port: 8088
+
+
+spring:
+  redis:
+    timeout: 30000
+    host: localhost
+    port: 6379
