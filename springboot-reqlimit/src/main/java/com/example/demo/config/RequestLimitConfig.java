@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Description:
  * extends WebMvcConfigurerAdapter 已经废弃，java 8 实现 WebMvcConfigurer 接口。
  * --------------------------------------
- * @ClassName: RequestLimitInterceptor.java
+ * @ClassName: RequestLimitConfig.java
  * @Date: 2021/4/14 10:57
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -20,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  **/
 @Slf4j
 @Configuration
-public class RequestLimitInterceptor implements WebMvcConfigurer {
+public class RequestLimitConfig implements WebMvcConfigurer {
 
     @Autowired
     private RequestLimitIntercept requestLimitIntercept;

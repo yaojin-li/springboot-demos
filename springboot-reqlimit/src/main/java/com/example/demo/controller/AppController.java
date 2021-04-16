@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Description: 请求限流测试
  * 1. 使用注解+拦截器方式实现
  * --------------------------------------
- * @ClassName: TestController.java
+ * @ClassName: AppController.java
  * @Date: 2021/3/22 15:38
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -19,21 +19,18 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("/app")
-public class TestController {
+public class AppController {
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-
     /**
-     * 一秒内请求三次，则拦截限流
+     * 一秒内请求超过三次，拦截限流
      */
     @RequestMapping("/testLimit")
     @RequestLimit(seconds = 1, maxCount = 3)
     public void testLimit() {
         redisTemplate.opsForValue().set("test", "just for test");
-
         System.out.println(redisTemplate.opsForValue().get("test"));
-
     }
 }

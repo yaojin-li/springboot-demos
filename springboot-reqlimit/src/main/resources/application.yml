@@ -1,9 +1,15 @@
-server:
-  port: 8088
-
 
 spring:
+  application:
+    name: springboot-sentinel
   redis:
     timeout: 30000
     host: localhost
     port: 6379
+  cloud:
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        heartbeat-interval-ms: 500
+server:
+  port: 8088
