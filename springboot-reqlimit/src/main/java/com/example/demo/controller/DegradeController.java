@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.SentinelService;
+import com.example.demo.service.DegradeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 /**
- * @Description: 请求限流测试
- * 2. 使用sentinel组件
+ * @Description: 熔断降级测试
  * --------------------------------------
- * @ClassName: SentinelController.java
- * @Date: 2021/4/16 14:08
+ * @ClassName: DegradeController.java
+ * @Date: 2021/4/17 17:29
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
@@ -22,29 +20,33 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @Slf4j
-@RequestMapping(value = "sentinel")
-public class SentinelController {
+@RequestMapping(value = "degrade")
+public class DegradeController {
 
     @Autowired
-    SentinelService sentinelService;
+    DegradeService degradeService;
 
     /**
      * 1.抛出异常的方式定义资源
      * 代码侵入性高
      */
     @RequestMapping(value = "/limit")
-    public String limit() {
-        return sentinelService.limit();
+    public void limit() {
+        try {
+            degradeService.limit();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-
 
     /**
-     * 2. 使用Sentinel注解实现限流
+     * 1.使用Sentinel注解实现熔断。类似限流。
      * 需要Sentinel切面配置
      */
-    @GetMapping(value = "/annotation/{name}")
-    public String annotation(@PathVariable String name) {
-        return sentinelService.annotation(name);
+    @GetMapping(value = "/query/{name}")
+    public String query(@PathVariable String name) {
+        return degradeService.degrade(name);
     }
+
 
 }
