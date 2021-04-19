@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>oracle</artifactId>
+    <artifactId>db</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>oracle</name>
+    <name>db</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -75,6 +75,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+        <!-- SQLserver依赖 -->
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>4.0</version>
         </dependency>
 
     </dependencies>
