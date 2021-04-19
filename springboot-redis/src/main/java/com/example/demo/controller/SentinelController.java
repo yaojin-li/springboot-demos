@@ -5,6 +5,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * @Description: --------------------------------------
  * @ClassName: SentinelController.java
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SentinelController {
 
     @Autowired
+    @Resource(name = "defaultTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
     @RequestMapping("/sentinelTest")
