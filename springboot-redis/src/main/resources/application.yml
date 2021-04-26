@@ -47,11 +47,11 @@
 
 ##########################
 ## Redis-单机模式配置-开始##
-#spring:
-#  redis:
-#    timeout: 30000
-#    host: localhost
-#    port: 6379
+spring:
+  redis:
+    timeout: 30000
+    host: 192.168.100.130
+    port: 6370
 #    password: 123456
 ## Redis-单机模式配置-结束##
 ##########################
@@ -60,19 +60,19 @@
 
 ##########################
 ## Redis-多个单机模式配置-开始##
-spring:
-  redis:
-    default:
-      timeout: 30000
-      host: localhost
-      port: 6379
-      password: 123456
-
-    localhost:
-      timeout: 30000
-      host: localhost
-      port: 6380
-      password: 123456
+#spring:
+#  redis:
+#    default:
+#      timeout: 30000
+#      host: localhost
+#      port: 6379
+#      password: 123456
+#
+#    localhost:
+#      timeout: 30000
+#      host: localhost
+#      port: 6380
+#      password: 123456
 
 ## Redis-多个单机模式配置-结束##
 ##########################

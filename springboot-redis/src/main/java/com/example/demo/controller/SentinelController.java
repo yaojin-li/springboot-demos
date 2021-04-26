@@ -20,7 +20,7 @@ import javax.annotation.Resource;
 public class SentinelController {
 
     @Autowired
-    @Resource(name = "defaultTemplate")
+//    @Resource(name = "defaultTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
     @RequestMapping("/sentinelTest")
