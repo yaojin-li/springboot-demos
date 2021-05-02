@@ -1,0 +1,15 @@
+
+FROM java:8
+
+MAINTAINER lxj <lixj_zj@163.com>
+
+# VOLUME /tmp
+
+COPY *.jar /app.jar
+
+CMD ["--server.port=8080"]
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+
