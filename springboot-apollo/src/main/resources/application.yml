@@ -1,0 +1,27 @@
+## 应用配置
+server:
+  port: 8082
+spring:
+  application:
+    name: springboot-apollo
+
+## Apollo配置
+app:
+  # 应用ID
+  id: ApolloDemo
+apollo:
+  #配置本地配置缓存目录
+  cacheDir: /opt/data/
+  # Apollo 配置中心地址
+  meta: http://172.190.119.83:8070
+  # 是否开启 springboot 参数自动更新
+  autoUpdateInjectedSpringProperties: true
+  bootstrap:
+    # 是否开启 Apollo
+    enabled: true
+    # 设置namespace
+    namespaces: application,application.yml
+    # 将 Apollo 加载提到初始化日志系统之前
+    eagerLoad:
+      enabled: true
+
