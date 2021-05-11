@@ -43,7 +43,34 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- 打jar包时排除配置文件，生产环境单独配置config文件夹，放置配置文件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>application.yml</exclude>
+                        <exclude>application-dev.yml</exclude>
+                        <exclude>application-preproduce.yml</exclude>
+                        <exclude>application-produce.yml</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
         </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
     </build>
 
 </project>
