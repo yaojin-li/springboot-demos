@@ -11,7 +11,7 @@
 //import redis.clients.jedis.JedisPoolConfig;
 //
 ///**
-// * @Description: redis多数据源配置文件
+// * @Description: redis多个单节点数据源配置文件
 // * 对应配置文件中多个redis配置。
 // * --------------------------------------
 // * @ClassName: MultiRedisConfig.java
