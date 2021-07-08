@@ -49,14 +49,14 @@ public class VideosController {
     }
 
 
-    @ApiOperation("测试-获取salaries表的总记录数")
+    @ApiOperation("获取表的总记录数")
     @GetMapping("/account")
     public int account() {
         return videosService.list().size();
     }
 
 
-    @ApiOperation("测试-分页查询接口")
+    @ApiOperation("基础分页查询接口")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "current", value = "起始", required = true, dataType = "Integer" ),
             @ApiImplicitParam(name = "size", value = "个数", required = true, dataType = "Integer" )
