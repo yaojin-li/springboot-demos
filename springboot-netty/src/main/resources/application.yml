@@ -1,8 +1,0 @@
-server:
-  port: 8077
-  servlet:
-    context-path: /
-
-websocket:
-  port: 7000  #端口
-  url: /msg   #访问url
