@@ -53,4 +53,8 @@ public class Demo {
         PARAMS = param;
     }
 
+    public String getParams(){
+        return PARAMS;
+    }
+
 }

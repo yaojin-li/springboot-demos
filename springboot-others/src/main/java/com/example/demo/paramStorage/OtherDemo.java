@@ -31,6 +31,7 @@ public class OtherDemo {
     public String getParam() {
         String temp = new Demo().PARAMS;
         LOGGER.info(String.format("OtherDemo获取public类型参数PARAMS[%s]", temp));
+        LOGGER.info(String.format("通过静态方法获取参数params[%s]", new Demo().getParams()));
         return temp;
     }
 
