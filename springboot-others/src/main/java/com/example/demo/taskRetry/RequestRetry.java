@@ -2,6 +2,7 @@ package com.example.demo.taskRetry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 
 /**
@@ -18,13 +19,23 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class RequestRetry {
     private static final Logger LOGGER = LoggerFactory.getLogger(RequestRetry.class);
 
-    // 定义重试次数
+    @Autowired
+    RedisUtil redisUtil;
+
+    // 定义重试获取锁的次数（可作为配置项）
     private static final Integer RETRY_NUM = 3;
+    // 默认锁的超时时间（可配置）
+    private static final Long TIMEOUT = 3L;
+    //
+    private static final String CONSTANTS_LOCK_NAME = "trade:lock:name";
 
     @Scheduled()
     public void delRequestRecordScheduled() {
         // 先判断该节点是否获取到Redis分布式锁
-
+        if (!redisUtil.lock(CONSTANTS_LOCK_NAME, null, TIMEOUT, null, RETRY_NUM)){
+            LOGGER.info("未获得并发锁...");
+            return;
+        }
         //
         LOGGER.info("获得并发锁，开始【xxx】业务处理...");
 
