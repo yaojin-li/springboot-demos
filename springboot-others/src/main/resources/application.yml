@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  servlet:
+    application-display-name: demo
+
+spring:
+  redis:
+    timeout: 30000
+    host: localhost
+    port: 6379
