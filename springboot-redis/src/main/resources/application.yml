@@ -50,9 +50,10 @@
 spring:
   redis:
     timeout: 30000
-    host: 192.168.100.130
-    port: 6370
-    password: 123456
+#    host: 192.168.100.130
+    port: 6379
+    host: localhost
+#    password: 123456
 ## Redis-单机模式配置-结束##
 ##########################
 
