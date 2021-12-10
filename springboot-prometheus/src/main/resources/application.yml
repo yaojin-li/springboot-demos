@@ -1,0 +1,33 @@
+# prometheus+grafana 监控集成配置
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+      jmx:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  application:
+    name: springboot-prometheus
+  cloud:
+    consul:
+      host: 192.168.56.102
+      # consul服务默认端口
+      port: 8500
+      # 注册到consul的服务名称
+      discovery:
+        # test标识用于prometheus服务过滤规则
+        service-name: springboot-prometheus-test
+        # 打开心跳机制，联通consul
+        heartbeat:
+          enabled: true
+        # 解决多实例服务ID重复，注册到consul相互覆盖的问题
+        instance-id: ${spring.application.name}-${server.port}-${random.value}
+
+server:
+  port: 8008
