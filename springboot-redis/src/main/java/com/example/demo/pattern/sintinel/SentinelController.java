@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.sintinel;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: ClusterController.java
+ * @ClassName: SentinelController.java
  * @Date: 2020/10/26 22:32
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -17,16 +17,15 @@ import javax.annotation.Resource;
  * @Contact: lixj_zj@163.com
  **/
 @RestController
-public class ClusterController {
+public class SentinelController {
 
     @Autowired
-    // @Resource(name = "defaultTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
-    @RequestMapping("/clusterTest")
+    @RequestMapping("/sentinel")
     public void demo() {
-        redisTemplate.opsForValue().set("Cluster", "测试Cluster");
-        String test = redisTemplate.opsForValue().get("Cluster").toString();
+        redisTemplate.opsForValue().set("Sentinel", "测试Sentinel");
+        String test = redisTemplate.opsForValue().get("Sentinel").toString();
         System.out.println(test);
     }
 }

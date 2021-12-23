@@ -1,32 +1,31 @@
-package com.example.demo.controller;
+package com.example.demo.single;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-
 /**
- * @Description: --------------------------------------
- * @ClassName: SentinelController.java
- * @Date: 2020/10/26 22:32
+ * @Description: 基础redis测试
+ * --------------------------------------
+ * @ClassName: SingleController.java
+ * @Date: 2021/3/15 23:52
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
 @RestController
-public class SentinelController {
+public class SingleController {
 
     @Autowired
-//    @Resource(name = "defaultTemplate")
     private RedisTemplate<String, Object> redisTemplate;
 
-    @RequestMapping("/sentinelTest")
-    public void demo() {
-        redisTemplate.opsForValue().set("Sentinel", "测试Sentinel");
-        String test = redisTemplate.opsForValue().get("Sentinel").toString();
+    @RequestMapping("/single")
+    public void defaultTest() {
+        redisTemplate.opsForValue().set("Single", "测试Single");
+        String test = redisTemplate.opsForValue().get("Single").toString();
         System.out.println(test);
     }
+
 }

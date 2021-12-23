@@ -8,7 +8,8 @@ import redis.clients.jedis.Pipeline;
 import java.util.Date;
 
 /**
- * @Description: --------------------------------------
+ * @Description: 测试redis pipeline
+ * --------------------------------------
  * @ClassName: PipelineController.java
  * @Date: 2021/6/4 17:17
  * @SoftWare: IntelliJ IDEA
