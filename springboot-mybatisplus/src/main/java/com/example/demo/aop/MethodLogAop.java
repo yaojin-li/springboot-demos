@@ -7,6 +7,8 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
 import java.lang.reflect.Method;
@@ -25,6 +27,7 @@ import java.lang.reflect.Method;
 @Aspect
 @Configuration
 public class MethodLogAop {
+    public static final Logger log = LoggerFactory.getLogger(MethodLogAop.class);
 
     @Around("@annotation(methodLog)")
     public Object around(ProceedingJoinPoint joinPoint, MethodLog methodLog) throws Throwable {
