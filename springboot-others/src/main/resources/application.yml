@@ -8,3 +8,6 @@ spring:
     timeout: 30000
     host: localhost
     port: 6379
+
+#zookeeper:
+#  host: 172.168.0.21:2181

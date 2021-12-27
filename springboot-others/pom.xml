@@ -57,6 +57,22 @@
             <version>3.13.6</version>
         </dependency>
 
+        <!--integration-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+        </dependency>
+        <!--integration redis -->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-redis</artifactId>
+        </dependency>
+        <!--integration zookeeper-->
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-zookeeper</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
