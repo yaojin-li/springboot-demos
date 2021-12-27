@@ -9,5 +9,6 @@ spring:
     host: localhost
     port: 6379
 
+# 测试spring integration 分布式锁
 #zookeeper:
 #  host: 172.168.0.21:2181
