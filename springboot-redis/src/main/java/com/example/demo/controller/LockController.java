@@ -3,13 +3,12 @@ package com.example.demo.controller;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.RestController;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPoolConfig;
 import redis.clients.jedis.Transaction;
 
 /**
- * @Description: 测试jedis客户端
+ * @Description: 测试jedis 乐观锁
  * --------------------------------------
- * @ClassName: JedisController.java
+ * @ClassName: LockController.java
  * @Date: 2021/4/4 11:36
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -17,7 +16,7 @@ import redis.clients.jedis.Transaction;
  * @Contact: lixj_zj@163.com
  **/
 @RestController
-public class JedisController {
+public class LockController {
 
     public static void main(String[] args) {
         Jedis jedis = new Jedis("127.0.0.1", 6379, 30000);
