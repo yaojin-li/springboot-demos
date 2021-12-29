@@ -1,7 +1,10 @@
 package com.example.demo.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.page.PageData;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +14,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Pipeline;
 
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -90,7 +93,8 @@ public class RedisUtil {
      */
     public void saveCache(final String key, List<?> list, Integer timeout) {
         if (list.isEmpty()) {
-            LOGGER.info("saveCache list 为空");
+            LOGGER.error("saveCache list 为空");
+            return;
         }
         Jedis redis = null;
         try {
@@ -98,16 +102,8 @@ public class RedisUtil {
             Pipeline pipeline = redis.pipelined();
             // 开起事务
             pipeline.multi();
-            String setValue = "";
             for (int i = 0; i < list.size(); i++) {
-                Object[] dataForRow = (Object[]) list.get(i);
-                for (int j = 0; j < dataForRow.length; j++) {
-                    if (ObjectUtils.isEmpty(dataForRow[j])) {
-                        dataForRow[j] = " ";
-                    }
-                    setValue += dataForRow[j].toString() + ",";
-                }
-                pipeline.zadd(key, (double) i, setValue);
+                pipeline.zadd(key, (double) i, JSON.toJSONString(list.get(i)));
             }
             // 设置过期时间
             pipeline.expire(key, timeout);
@@ -132,8 +128,47 @@ public class RedisUtil {
      * @return 缓存分页数据
      */
     public PageData<Object> getPageDataFromCache(PageData<Object> pageData, String key) {
-
+        if (StringUtils.isEmpty(key)) {
+            LOGGER.error("getPageDataFromCache key 为空");
+            return pageData;
+        }
+        Jedis redis = null;
+        List<Object> cacheList = new ArrayList<Object>();
+        try {
+            redis = jedisPool.getResource();
+            // 获得总记录数
+            Long totalCount = redis.zcard(key);
+            if (totalCount <= 0) {
+                return pageData;
+            }
+            // 计算分页
+            Integer beginIndex = (pageData.getPageNo() - 1) * pageData.getPageSize();
+            Integer endIndex = beginIndex + pageData.getPageSize() - 1;
+            if (pageData.getTotalCount() == 0) {
+                // 保存总记录数
+                pageData.setTotalCount(totalCount.intValue());
+            }
+            // Sorted Set 返回结果封装为 LinkedHashSet
+            Set<String> cacheDataForRow = redis.zrange(key, beginIndex, endIndex);
+            cacheList.addAll(cacheDataForRow);
+            pageData.setResult(cacheList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (redis != null) {
+                redis.close();
+            }
+        }
         return pageData;
     }
 
+
 }
+
+
+
+
+
+
+
+
