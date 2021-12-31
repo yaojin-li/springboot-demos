@@ -23,6 +23,6 @@ public class DemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // 选取主节点
-        // electLeaderService.startElect();
+         electLeaderService.startElect();
     }
 }

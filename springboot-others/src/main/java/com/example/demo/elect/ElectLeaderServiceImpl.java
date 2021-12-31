@@ -1,6 +1,7 @@
 package com.example.demo.elect;
 
 import com.example.demo.utils.IPUtil;
+import io.netty.util.concurrent.DefaultThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * @Description: --------------------------------------
@@ -27,7 +27,7 @@ public class ElectLeaderServiceImpl implements ElectLeaderService {
     /**
      * 选举节点
      */
-    private final String electNodeName = IPUtil.getLocalHostIdentifier() + "_" + UUID.randomUUID().toString().replace("_", "");
+    private final String electNodeName = IPUtil.getLocalHostIdentifier() + "_" + UUID.randomUUID().toString().replace("_", "").substring(0, 8);
 
     /**
      * Redis中存储leader的key
@@ -47,12 +47,18 @@ public class ElectLeaderServiceImpl implements ElectLeaderService {
     /**
      * 异步提交选举任务
      */
-    private ExecutorService executorService = null;
+    private ExecutorService executorService = new ThreadPoolExecutor(
+            4,
+            10,
+            60,
+            TimeUnit.SECONDS,
+            new LinkedBlockingDeque<>()
+    );
 
     /**
      * 缓存key过期时间
      */
-    private final int REDIS_KEY_TIME_OUT = 60;
+    private static final int REDIS_KEY_TIME_OUT = 60;
 
     @Autowired
     RedisTemplate redisTemplate;
