@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Description: --------------------------------------
- * @ClassName: RedisToolUtil.java
+ * @ClassName: RedisUtil.java
  * @Date: 2021/12/1 0001  19:46
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -19,8 +19,8 @@ import java.util.concurrent.TimeUnit;
  * @Contact: lixj_zj@163.com
  **/
 @Component
-public class RedisToolUtil {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RedisToolUtil.class);
+public class RedisUtil {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RedisUtil.class);
 
     @Autowired
     private RedisTemplate redisTemplate;

@@ -1,7 +1,6 @@
 package com.example.demo.elect;
 
 import com.example.demo.utils.IPUtil;
-import io.netty.util.concurrent.DefaultThreadFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,16 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
- * @Description: --------------------------------------
- * @ClassName: ElectLeaderServiceImpl.java
+ * @Description: Redis分布式锁实现选举机制
+ * 缺点：单点故障时，需要等到过期时间后，其余节点再选举主节点
+ * --------------------------------------
+ * @ClassName: RedisElectLeader.java
  * @Date: 2021/12/6 0006  9:43
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
@@ -21,13 +25,13 @@ import java.util.concurrent.*;
  * @Contact: lixj_zj@163.com
  **/
 @Service
-public class ElectLeaderServiceImpl implements ElectLeaderService {
-    private static Logger LOGGER = LoggerFactory.getLogger(ElectLeaderServiceImpl.class);
+public class RedisElectLeader implements ElectLeaderService {
+    private static Logger LOGGER = LoggerFactory.getLogger(RedisElectLeader.class);
 
     /**
      * 选举节点
      */
-    private final String electNodeName = IPUtil.getLocalHostIdentifier() + "_" + UUID.randomUUID().toString().replace("_", "").substring(0, 8);
+    private final String electNodeName = IPUtil.getLocalHostIdentifier() + "_" + UUID.randomUUID().toString().replace("_", "");
 
     /**
      * Redis中存储leader的key
@@ -111,7 +115,7 @@ public class ElectLeaderServiceImpl implements ElectLeaderService {
             // 获取到锁，当前节点设置为主节点
             if (locked) {
                 leader = true;
-                LOGGER.info(String.format("节点[%s]被选举为leader...", electNodeName));
+                LOGGER.info(String.format("============节点[%s]为主节点===========", electNodeName));
             } else {
                 // 未能获取到锁，判断获取到锁的主节点
                 String value = (String) redisTemplate.opsForValue().get(LEADER_KEY);

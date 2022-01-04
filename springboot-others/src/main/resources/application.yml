@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8083
   servlet:
     application-display-name: demo
 
@@ -8,7 +8,7 @@ server:
 spring:
   redis:
     timeout: 30000
-    host: localhost
+    host: 172.28.242.99
     port: 6379
     database: 0
     lettuce:
