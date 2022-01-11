@@ -1,7 +1,9 @@
-package com.example.demo.controller;
+package com.example.demo.sentinlImpl.controller;
 
-import com.example.demo.service.DegradeService;
+import com.example.demo.sentinlImpl.service.DegradeService;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,30 +24,20 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RequestMapping(value = "degrade")
 public class DegradeController {
+    private static final Logger log = LoggerFactory.getLogger(DegradeController.class);
 
     @Autowired
     DegradeService degradeService;
 
     /**
-     * 1.抛出异常的方式定义资源
-     * 代码侵入性高
-     */
-    @RequestMapping(value = "/limit")
-    public void limit() {
-        try {
-            degradeService.limit();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 1.使用Sentinel注解实现熔断。类似限流。
+     * 使用Sentinel注解实现熔断。类似限流。
      * 需要Sentinel切面配置
      */
-    @GetMapping(value = "/query/{name}")
-    public String query(@PathVariable String name) {
-        return degradeService.degrade(name);
+    @RequestMapping(value = "/{name}")
+    public void query(@PathVariable String name) {
+        while (true){
+            log.info(degradeService.degrade(name));
+        }
     }
 
 

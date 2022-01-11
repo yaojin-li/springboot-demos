@@ -7,7 +7,7 @@
 
     <!--连接数据库jar 这里选择自己本地位置-->
     <!--mysql-->
-    <classPathEntry location="E:/workspace/springboot-demos/springboot-mysql/src/main/resources/static/mysql-connector-java-5.1.46.jar"/>
+    <classPathEntry location="E:/workspace/springboot-demos/springboot-mybatisplus/src/main/resources/static/mysql-connector-java-5.1.46.jar"/>
 
     <!--oracle-->
     <!--<classPathEntry location="E:/workspace/springboot-demos/springboot-datasources/src/main/resources/static/ojdbc14-10.2.0.3.0.jar" />-->
@@ -33,7 +33,7 @@
 
         <!--mysql-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/springdemo?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -76,7 +76,7 @@
         </javaClientGenerator>
 
         <!-- 指定数据库表 -->
-        <table schema="" tableName="videos"
+        <table schema="" tableName="dm_client_jd_finclip"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

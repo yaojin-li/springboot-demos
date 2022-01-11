@@ -5,21 +5,25 @@ server:
 
 ##########################
 ## Redis-单机模式配置-开始##
-spring:
-  redis:
-    timeout: 30000
-    host: 172.28.242.99
-    port: 6379
-    database: 0
-    lettuce:
-      pool:
-        max-active: 1000
-        max-wait: -1
-        max-idle: 100
-        min-idle: 20
+#spring:
+#  redis:
+#    timeout: 30000
+#    host: 172.28.242.99
+#    port: 6379
+#    database: 0
+#    lettuce:
+#      pool:
+#        max-active: 1000
+#        max-wait: -1
+#        max-idle: 100
+#        min-idle: 20
 ## Redis-单机模式配置-结束##
 ##########################
 
 # 测试spring integration 分布式锁
-#zookeeper:
-#  host: 172.168.0.21:2181
+zookeeper:
+  hosts: 192.168.56.102:2181
+  master:
+    node:
+      path: /test/elect
+

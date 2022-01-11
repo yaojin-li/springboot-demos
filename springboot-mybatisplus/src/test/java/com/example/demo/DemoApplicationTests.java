@@ -23,10 +23,10 @@ class DemoApplicationTests {
         config.setAlgorithm("PBEWithMD5AndDES");
 
         // 修改项：加密的密钥，配置到yml文件中
-        config.setPassword("demo");
+        config.setPassword("sync-jd");
         standardPBEStringEncryptor.setConfig(config);
         // 修改项：数据库连接密码
-        String plainText = "123456789";
+        String plainText = "appuser";
         String encryptedText = standardPBEStringEncryptor.encrypt(plainText);
         System.out.println(encryptedText);
     }

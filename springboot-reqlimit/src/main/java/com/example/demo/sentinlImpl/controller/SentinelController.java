@@ -1,9 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.sentinlImpl.controller;
 
-import com.example.demo.service.SentinelService;
+import com.example.demo.sentinlImpl.service.SentinelService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,22 +28,12 @@ public class SentinelController {
     SentinelService sentinelService;
 
     /**
-     * 1.抛出异常的方式定义资源
-     * 代码侵入性高
-     */
-    @RequestMapping(value = "/limit")
-    public String limit() {
-        return sentinelService.limit();
-    }
-
-
-    /**
-     * 2. 使用Sentinel注解实现限流
+     * 使用Sentinel注解实现限流
      * 需要Sentinel切面配置
      */
-    @GetMapping(value = "/annotation/{name}")
-    public String annotation(@PathVariable String name) {
-        return sentinelService.annotation(name);
+    @RequestMapping(value = "/{name}")
+    public String test(@PathVariable String name) {
+        return sentinelService.test(name);
     }
 
 }

@@ -1,11 +1,11 @@
-package com.example.demo.intercept;
+package com.example.demo.redisImpl.intercept;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.annotation.RequestLimit;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.security.SecurityUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 public class RequestLimitIntercept extends HandlerInterceptorAdapter {
+    private static final Logger log = LoggerFactory.getLogger(RequestLimitIntercept.class);
 
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
