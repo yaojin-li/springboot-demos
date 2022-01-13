@@ -3,20 +3,26 @@ server:
   servlet:
     application-display-name: demo
 
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
 ##########################
 ## Redis-单机模式配置-开始##
-#spring:
-#  redis:
-#    timeout: 30000
-#    host: 172.28.242.99
-#    port: 6379
-#    database: 0
-#    lettuce:
-#      pool:
-#        max-active: 1000
-#        max-wait: -1
-#        max-idle: 100
-#        min-idle: 20
+  redis:
+    timeout: 30000
+    host: localhost
+    port: 6379
+    database: 0
+    lettuce:
+      pool:
+        max-active: 1000
+        max-wait: -1
+        max-idle: 100
+        min-idle: 20
 ## Redis-单机模式配置-结束##
 ##########################
 
