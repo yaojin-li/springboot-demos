@@ -27,9 +27,9 @@ spring:
 ##########################
 
 # 测试spring integration 分布式锁
-zookeeper:
-  hosts: 192.168.56.102:2181
-  master:
-    node:
-      path: /test/elect
+#zookeeper:
+#  hosts: 192.168.56.102:2181
+#  master:
+#    node:
+#      path: /test/elect
 
