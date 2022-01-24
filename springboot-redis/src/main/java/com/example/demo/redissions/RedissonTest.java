@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @Description: 可重入锁
  * --------------------------------------
- * @ClassName: TestRedisson.java
+ * @ClassName: RedissonTest.java
  * @Date: 2021/12/6 0006  17:26
  * @SoftWare: IntelliJ IDEA
  * --------------------------------------
  * @Author: lixj
  * @Contact: lixj_zj@163.com
  **/
-public class TestRedisson {
+public class RedissonTest {
     @Autowired
     RedissonClient redissonClient;
 

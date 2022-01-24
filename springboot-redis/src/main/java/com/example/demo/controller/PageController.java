@@ -29,7 +29,7 @@ public class PageController {
     @Autowired
     RedisUtil redisUtil;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+//    @Scheduled(cron = "0 */1 * * * ?")
     public void savePage() {
         List<Object> list = new ArrayList<>();
         list.add("a");
