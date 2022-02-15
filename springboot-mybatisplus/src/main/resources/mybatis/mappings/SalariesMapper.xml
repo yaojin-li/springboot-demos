@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.base.dao.SalariesMapper">
+    <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.example.demo.base.entity.Salaries">
-        <id column="emp_no" jdbcType="INTEGER" property="empNo"/>
-        <id column="from_date" jdbcType="DATE" property="fromDate"/>
-        <result column="salary" jdbcType="INTEGER" property="salary"/>
-        <result column="to_date" jdbcType="DATE" property="toDate"/>
+        <result column="salary" property="salary"/>
+        <result column="emp_no" property="empNo"/>
+        <result column="col1" property="col1"/>
+        <result column="col2" property="col2"/>
+        <result column="col3" property="col3"/>
+        <result column="col4" property="col4"/>
+        <result column="col5" property="col5"/>
+        <result column="col6" property="col6"/>
+        <result column="col7" property="col7"/>
+        <result column="col8" property="col8"/>
+        <result column="col9" property="col9"/>
+        <result column="col10" property="col10"/>
+        <result column="col11" property="col11"/>
+        <result column="col12" property="col12"/>
+        <result column="col13" property="col13"/>
+        <result column="col14" property="col14"/>
+        <result column="col15" property="col15"/>
+        <result column="col16" property="col16"/>
+        <result column="col17" property="col17"/>
+        <result column="col18" property="col18"/>
+        <result column="col19" property="col19"/>
+        <result column="col20" property="col20"/>
+        <result column="from_date" property="fromDate"/>
+        <result column="to_date" property="toDate"/>
     </resultMap>
+
+    <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-    emp_no, from_date, salary, to_date
-  </sql>
+            salary, emp_no, col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12, col13, col14, col15, col16, col17, col18, col19, col20, from_date, to_date
+        </sql>
 
     <select id="cursorTest" resultMap="BaseResultMap">
       select * from salaries limit #{limit}
@@ -35,5 +58,20 @@
     <select id="cacheTest" resultType="com.example.demo.base.entity.Salaries">
         select * from salaries where emp_no = #{empNo} and salary = #{salary}
     </select>
+
+    <insert id="saveBatch" parameterType="java.util.List">
+        insert into salaries(salary, emp_no, col1, col2, col3, col4, col5,
+        col6, col7, col8, col9, col10, col11, col12, col13, col14, col15,
+        col16, col17, col18, col19, col20, from_date, to_date
+        ) values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.salary},#{item.empNo},
+            #{item.col1},#{item.col2},#{item.col3},#{item.col4},#{item.col5},
+            #{item.col6},#{item.col7},#{item.col8},#{item.col9},#{item.col10},
+            #{item.col11},#{item.col12},#{item.col13},#{item.col14},#{item.col15},
+            #{item.col16},#{item.col17},#{item.col18},#{item.col19},#{item.col20},
+            #{item.fromDate},#{item.toDate})
+        </foreach>
+    </insert>
 
 </mapper>

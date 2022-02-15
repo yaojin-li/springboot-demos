@@ -32,4 +32,9 @@ public interface SalariesMapper extends BaseMapper<Salaries> {
      * */
     Salaries cacheTest(@Param("empNo") int empNo, @Param("salary") String salary);
 
+    /**
+     * 测试批量插入优化
+     * */
+    int saveBatch(List<Salaries> list);
+
 }

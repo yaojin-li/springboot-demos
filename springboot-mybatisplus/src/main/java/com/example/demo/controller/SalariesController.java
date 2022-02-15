@@ -3,24 +3,25 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.annotation.MethodLog;
 import com.example.demo.base.dao.SalariesMapper;
 import com.example.demo.base.entity.Salaries;
+import com.example.demo.config.ApplicationContextHelper;
 import com.example.demo.service.SalariesService;
-import com.sun.org.apache.xerces.internal.util.EntityResolverWrapper;
 import org.apache.ibatis.cursor.Cursor;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 /**
  * @Description: --------------------------------------
@@ -153,5 +154,61 @@ public class SalariesController {
         sqlSession.close();
     }
 
+
+    @Autowired
+    ApplicationContextHelper contextHelper;
+
+    /**
+     * 10w条数据，mybatis的simple模式批量插入耗时：42s
+     * 10w条数据，mybatis的batch模式批量插入耗时：32s
+     * batch模式测试时效率提高30%左右；
+     * */
+    @RequestMapping("/batchOpt")
+    @MethodLog
+    public void batchOpt() throws Exception {
+        try {
+            SqlSessionTemplate batchSqlSessionTemplate = (SqlSessionTemplate) contextHelper.getBean("batchSqlSessionTemplate");
+            SalariesMapper mapper = batchSqlSessionTemplate.getMapper(SalariesMapper.class);
+            List<Salaries> records = new ArrayList<>();
+
+            for (int i = 0; i < 100000; i++) {
+                Salaries salaries = new Salaries();
+                Random random = new Random();
+                salaries.setEmpNo(random.nextInt(10));
+                salaries.setSalary(random.nextInt(10));
+                salaries.setCol1(random.nextInt(10));
+                salaries.setCol2(random.nextInt(10));
+                salaries.setCol3(random.nextInt(10));
+                salaries.setCol4(random.nextInt(10));
+                salaries.setCol5(random.nextInt(10));
+                salaries.setCol6(random.nextInt(10));
+                salaries.setCol7(random.nextInt(10));
+                salaries.setCol8(random.nextInt(10));
+                salaries.setCol9(random.nextInt(10));
+                salaries.setCol10(random.nextInt(10));
+                salaries.setCol11(random.nextInt(10));
+                salaries.setCol12(random.nextInt(10));
+                salaries.setCol13(random.nextInt(10));
+                salaries.setCol14(random.nextInt(10));
+                salaries.setCol15(random.nextInt(10));
+                salaries.setCol16(random.nextInt(10));
+                salaries.setCol17(random.nextInt(10));
+                salaries.setCol18(random.nextInt(10));
+                salaries.setCol19(random.nextInt(10));
+                salaries.setCol20(random.nextInt(10));
+                salaries.setFromDate(LocalDate.now());
+                salaries.setToDate(LocalDate.now());
+                records.add(salaries);
+                if (i % 5000 == 0) {
+                    mapper.saveBatch(records);
+                    records.clear();
+                }
+            }
+            mapper.saveBatch(records);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 }

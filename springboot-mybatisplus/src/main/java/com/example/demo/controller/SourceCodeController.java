@@ -37,7 +37,6 @@ public class SourceCodeController {
         EmployeesMapper mapper = sqlSession.getMapper(EmployeesMapper.class);
         // 调用代理对象方法
         Employees employees = mapper.selectById(10005);
-        log.info(employees.toString());
         // 关闭session
         sqlSession.close();
     }

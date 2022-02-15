@@ -129,6 +129,13 @@
             <version>1.5.20</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.5.6</version>
+        </dependency>
+
         <!-- 自定义缓存 -->
         <dependency>
             <groupId>org.mybatis.caches</groupId>
