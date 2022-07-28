@@ -3,15 +3,19 @@ SpringBoot 学习案例汇总。
 
 #### 1. springboot-apollo 
 - Apollo基本配置
-    -  namespace配置、热部署、配置变动监听等；
+    -  namespace配置、热部署、配置变动监听、服务器配置文件与Apollo配置文件读取优先级问题的原因；
 
 #### 2. springboot-log4j2 
-- log4j2、lombok、日志切面、方法日志注解、常见日志Utils等_  
-    建议 IDEA 配置日志插件 Grep Console 一起使用_
-    
-2. springboot-rediscluster
+- log4j2、lombok、日志切面、方法日志注解；（IDEA本地开发调试配置日志插件 Grep Console）
+    - logback 日志配置（性能对比）、不同日志体系对比、日志锚点（分布式系统日志排除问题）、debug模式；
 
-    _包含：redis集群模式配置、lettuce连接池等_
+#### 3. springboot-redis
+- 单机模式、多个单机模式、集群模式、哨兵模式、lettuce连接池；
+    - 通过子模块分割开，每个模式单独配置；scan方法代替keys方式做全量数据匹配；
+
+
+####
+
     
 3. springboot-scheduler
 
@@ -58,3 +62,7 @@ SpringBoot 学习案例汇总。
 
     _包含：集成swagger、mybatisPlus、lombok、Mybatis-generator插件等_ 
     swagger-ui控台：http://localhost:8080/swagger-ui.html
+
+13. springboot-xxl-job
+14. springboot-request-limit 请求限流的几种方式
+15. springboot-other 中的内容集中到其他相关子项目中。
