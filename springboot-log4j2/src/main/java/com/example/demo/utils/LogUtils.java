@@ -14,7 +14,7 @@ import com.example.demo.enums.LogEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LogUtils {
+public class LogUtils  {
 
     /**
      * 获取日志logger

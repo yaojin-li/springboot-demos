@@ -1,10 +1,13 @@
 # springboot-demos
 SpringBoot 学习案例汇总。
 
-1. springboot-log4j2 
+#### 1. springboot-apollo 
+- Apollo基本配置
+    -  namespace配置、热部署、配置变动监听等；
 
-    _包含：log4j2、lombok、日志切面、方法日志注解、常见日志Utils等_  
-    _建议 IDEA 配置日志插件 Grep Console 一起使用_
+#### 2. springboot-log4j2 
+- log4j2、lombok、日志切面、方法日志注解、常见日志Utils等_  
+    建议 IDEA 配置日志插件 Grep Console 一起使用_
     
 2. springboot-rediscluster
 

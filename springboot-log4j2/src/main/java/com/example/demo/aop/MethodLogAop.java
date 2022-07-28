@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
 
 /**
  * @Description: joinPoint 获取切面参数，记录日志
+ * 注：该方法对于含有数据流的参数存在异常问题！！！
  * --------------------------------------
  * @ClassName: MethodLogAop.java
  * @Date: 2020/11/12 18:10
