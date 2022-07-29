@@ -12,15 +12,21 @@ SpringBoot 学习案例汇总。
 #### 3. springboot-redis
 - 单机模式、多个单机模式、集群模式、哨兵模式、lettuce连接池；
     - 通过子模块分割开，每个模式单独配置；scan方法代替keys方式做全量数据匹配；
+    - 1.yml等配置文件（方便）；2.Apollo+config配置（灵活）；
 
-
-####
-
+#### 4. springboot-scheduler
+- 集成scheduler定时任务；
+    - 设置定时任务池配置；比较成熟的定时任务工具；
     
-3. springboot-scheduler
+#### 5. springboot-request-limit 
+- 外部请求限流方式：guava、redis、sentinel；
+    - 内部触发次数限流：acquire();
+    - 通过子模块分割开；
+    - 比较成熟的限流工具；
 
-    _包含：集成scheduler定时任务_
-    
+#### 6. 
+
+
 4. springboot-mongodb
 
     _包含：集成MongoDB数据库，使用springframework中的MongoDB模板创建连接等_
@@ -64,5 +70,5 @@ SpringBoot 学习案例汇总。
     swagger-ui控台：http://localhost:8080/swagger-ui.html
 
 13. springboot-xxl-job
-14. springboot-request-limit 请求限流的几种方式
+14. 
 15. springboot-other 中的内容集中到其他相关子项目中。
