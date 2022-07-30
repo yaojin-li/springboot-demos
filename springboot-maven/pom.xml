@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>maven_parent</artifactId>
+    <artifactId>maven</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -19,7 +19,7 @@
         <module>maven_service</module>
     </modules>
 
-    <name>maven_parent</name>
+    <name>maven</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
