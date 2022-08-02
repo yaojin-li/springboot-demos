@@ -20,7 +20,7 @@ apollo:
     # 是否开启 Apollo
     enabled: true
     # 设置namespace
-    namespaces: application,application.yml
+    namespaces: application, namespace-test
     # 将 Apollo 加载提到初始化日志系统之前
     eagerLoad:
       enabled: true

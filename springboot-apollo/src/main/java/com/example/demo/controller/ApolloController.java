@@ -22,23 +22,11 @@ public class ApolloController {
 
     @Value("${server.port}")
     String port;
-
-    @GetMapping("test")
-    public String test(String name) {
-
-        logger.debug("debug log...");
-        logger.info("info log...");
-        logger.warn("warn log...");
-
-        return "hi " + name + " ,i am from port:" + port;
-    }
-
-
     @Value("${test:默认值}")
     private String test;
 
-    @GetMapping("/test1")
-    public String test1(){
+    @GetMapping("/test")
+    public String test(){
         return "test的值为:" + test;
     }
 
