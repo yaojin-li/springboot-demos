@@ -2,8 +2,11 @@
 
 ### 笔记
 1.Idea 中启动，配置启动参数：
-注意：快速构建quick-start官方教程的默认端口为8070
--Dapollo.configService=http://172.190.119.83:8080 -Denv=DEV
+-Dapollo.configService=http://192.168.100.131:8080 -Denv=DEV
+注：
+    快速构建quick-start官方教程的Apollo默认服务端口为8070；
+    8080为eurka端口，即从eurka中发现注册的Apollo服务；
+
 
 2.java命令启动：
 java -Dapollo.configService=http://172.190.119.83:8080 -Denv=DEV -jar apollo-demo.jar
