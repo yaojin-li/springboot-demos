@@ -8,9 +8,18 @@
 2.java命令启动：
 java -Dapollo.configService=http://172.190.119.83:8080 -Denv=DEV -jar apollo-demo.jar
 
+3. 已集成 AutoUpdateConfigChangeListener 监听器，当Apollo中数据改动且代码中有使用的配置时，监听器有日志输出：
+    新增、修改：
+    - `2022-08-02 23:35:53.831  INFO 15740 --- [Apollo-Config-1] c.f.a.s.p.AutoUpdateConfigChangeListener : Auto update apollo changed value successfully, new value: 33, key: server.id, beanName: apolloController, field: com.example.demo.controller.ApolloController.serverId`
+    删除：采用代码中的默认值：
+    - `2022-08-02 23:38:07.048  INFO 15740 --- [Apollo-Config-2] c.f.a.s.p.AutoUpdateConfigChangeListener : Auto update apollo changed value successfully, new value: 默认值, key: test, beanName: apolloController, field: com.example.demo.controller.ApolloController.test`
+    
+
 ##
 构建与配置Apollo配置中心：
 https://github.com/ctripcorp/apollo/wiki/Quick-Start
+注：端口被占用，检查 lsof -i:8080
+
 
 参考：
 https://blog.csdn.net/wuzhiwei549/article/details/105139608/

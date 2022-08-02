@@ -8,12 +8,12 @@ spring:
 ## Apollo配置
 app:
   # 应用ID
-  id: ApolloDemo
+  id: springboot-apollo
 apollo:
   #配置本地配置缓存目录
   cacheDir: /opt/data/
   # Apollo 配置中心地址
-  meta: http://172.190.119.83:8070
+  meta: http://192.168.100.131:8070
   # 是否开启 springboot 参数自动更新
   autoUpdateInjectedSpringProperties: true
   bootstrap:

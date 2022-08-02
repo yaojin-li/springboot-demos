@@ -20,14 +20,18 @@ public class ApolloController {
 
     private static Logger logger = LoggerFactory.getLogger(ApolloController.class);
 
-    @Value("${server.port}")
-    String port;
+    @Value("${server.id}")
+    String serverId;
     @Value("${test:默认值}")
     private String test;
+    @Value("${namespace.test}")
+    String namespaceTest;
 
     @GetMapping("/test")
-    public String test(){
-        return "test的值为:" + test;
+    public void test() {
+        logger.info("serverId:{}", serverId);
+        logger.info("test:{}", test);
+        logger.info("namespace:{}", namespaceTest);
     }
 
 }
