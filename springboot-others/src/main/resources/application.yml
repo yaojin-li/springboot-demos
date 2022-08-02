@@ -12,17 +12,17 @@ spring:
 
 ##########################
 ## Redis-单机模式配置-开始##
-  redis:
-    timeout: 30000
-    host: localhost
-    port: 6379
-    database: 0
-    lettuce:
-      pool:
-        max-active: 1000
-        max-wait: -1
-        max-idle: 100
-        min-idle: 20
+#  redis:
+#    timeout: 30000
+#    host: localhost
+#    port: 6379
+#    database: 0
+#    lettuce:
+#      pool:
+#        max-active: 1000
+#        max-wait: -1
+#        max-idle: 100
+#        min-idle: 20
 ## Redis-单机模式配置-结束##
 ##########################
 
@@ -32,4 +32,8 @@ spring:
 #  master:
 #    node:
 #      path: /test/elect
+
+## 测试分布式日志链路跟踪
+logging:
+  config: classpath:logback.xml
 

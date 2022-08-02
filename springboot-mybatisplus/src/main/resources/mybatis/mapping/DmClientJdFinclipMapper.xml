@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.dao.DmClientJdFinclipMapper">
+  <resultMap id="BaseResultMap" type="mybatis.beans.DmClientJdFinclip">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="unique_id" jdbcType="VARCHAR" property="uniqueId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="source_type" jdbcType="VARCHAR" property="sourceType" />
+    <result column="update_status" jdbcType="VARCHAR" property="updateStatus" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="account_flag" jdbcType="VARCHAR" property="accountFlag" />
+    <result column="time_point" jdbcType="VARCHAR" property="timePoint" />
+    <result column="process_type" jdbcType="INTEGER" property="processType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, unique_id, open_id, source_type, update_status, start_date, update_date, account_flag, 
+    time_point, process_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dm_client_jd_finclip
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dm_client_jd_finclip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis.beans.DmClientJdFinclip">
+    insert into dm_client_jd_finclip (id, unique_id, open_id, 
+      source_type, update_status, start_date, 
+      update_date, account_flag, time_point, 
+      process_type)
+    values (#{id,jdbcType=INTEGER}, #{uniqueId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{sourceType,jdbcType=VARCHAR}, #{updateStatus,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{accountFlag,jdbcType=VARCHAR}, #{timePoint,jdbcType=VARCHAR}, 
+      #{processType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.beans.DmClientJdFinclip">
+    insert into dm_client_jd_finclip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uniqueId != null">
+        unique_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="updateStatus != null">
+        update_status,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="accountFlag != null">
+        account_flag,
+      </if>
+      <if test="timePoint != null">
+        time_point,
+      </if>
+      <if test="processType != null">
+        process_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueId != null">
+        #{uniqueId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateStatus != null">
+        #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFlag != null">
+        #{accountFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="timePoint != null">
+        #{timePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        #{processType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.beans.DmClientJdFinclip">
+    update dm_client_jd_finclip
+    <set>
+      <if test="uniqueId != null">
+        unique_id = #{uniqueId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateStatus != null">
+        update_status = #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFlag != null">
+        account_flag = #{accountFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="timePoint != null">
+        time_point = #{timePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        process_type = #{processType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.beans.DmClientJdFinclip">
+    update dm_client_jd_finclip
+    set unique_id = #{uniqueId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      update_status = #{updateStatus,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      account_flag = #{accountFlag,jdbcType=VARCHAR},
+      time_point = #{timePoint,jdbcType=VARCHAR},
+      process_type = #{processType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis.beans.DmClientJdFinclip">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="unique_id" jdbcType="VARCHAR" property="uniqueId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="source_type" jdbcType="VARCHAR" property="sourceType" />
+    <result column="update_status" jdbcType="VARCHAR" property="updateStatus" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="account_flag" jdbcType="VARCHAR" property="accountFlag" />
+    <result column="time_point" jdbcType="VARCHAR" property="timePoint" />
+    <result column="process_type" jdbcType="INTEGER" property="processType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, unique_id, open_id, source_type, update_status, start_date, update_date, account_flag, 
+    time_point, process_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dm_client_jd_finclip
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dm_client_jd_finclip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis.beans.DmClientJdFinclip">
+    insert into dm_client_jd_finclip (id, unique_id, open_id, 
+      source_type, update_status, start_date, 
+      update_date, account_flag, time_point, 
+      process_type)
+    values (#{id,jdbcType=INTEGER}, #{uniqueId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{sourceType,jdbcType=VARCHAR}, #{updateStatus,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{accountFlag,jdbcType=VARCHAR}, #{timePoint,jdbcType=VARCHAR}, 
+      #{processType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.beans.DmClientJdFinclip">
+    insert into dm_client_jd_finclip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uniqueId != null">
+        unique_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="updateStatus != null">
+        update_status,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="accountFlag != null">
+        account_flag,
+      </if>
+      <if test="timePoint != null">
+        time_point,
+      </if>
+      <if test="processType != null">
+        process_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueId != null">
+        #{uniqueId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateStatus != null">
+        #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFlag != null">
+        #{accountFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="timePoint != null">
+        #{timePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        #{processType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.beans.DmClientJdFinclip">
+    update dm_client_jd_finclip
+    <set>
+      <if test="uniqueId != null">
+        unique_id = #{uniqueId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateStatus != null">
+        update_status = #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFlag != null">
+        account_flag = #{accountFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="timePoint != null">
+        time_point = #{timePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        process_type = #{processType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.beans.DmClientJdFinclip">
+    update dm_client_jd_finclip
+    set unique_id = #{uniqueId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      update_status = #{updateStatus,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      account_flag = #{accountFlag,jdbcType=VARCHAR},
+      time_point = #{timePoint,jdbcType=VARCHAR},
+      process_type = #{processType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="mybatis.beans.DmClientJdFinclip">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="unique_id" jdbcType="VARCHAR" property="uniqueId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="source_type" jdbcType="VARCHAR" property="sourceType" />
+    <result column="update_status" jdbcType="VARCHAR" property="updateStatus" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="account_flag" jdbcType="VARCHAR" property="accountFlag" />
+    <result column="time_point" jdbcType="VARCHAR" property="timePoint" />
+    <result column="process_type" jdbcType="INTEGER" property="processType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, unique_id, open_id, source_type, update_status, start_date, update_date, account_flag, 
+    time_point, process_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from dm_client_jd_finclip
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from dm_client_jd_finclip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="mybatis.beans.DmClientJdFinclip">
+    insert into dm_client_jd_finclip (id, unique_id, open_id, 
+      source_type, update_status, start_date, 
+      update_date, account_flag, time_point, 
+      process_type)
+    values (#{id,jdbcType=INTEGER}, #{uniqueId,jdbcType=VARCHAR}, #{openId,jdbcType=VARCHAR}, 
+      #{sourceType,jdbcType=VARCHAR}, #{updateStatus,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{accountFlag,jdbcType=VARCHAR}, #{timePoint,jdbcType=VARCHAR}, 
+      #{processType,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="mybatis.beans.DmClientJdFinclip">
+    insert into dm_client_jd_finclip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uniqueId != null">
+        unique_id,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="sourceType != null">
+        source_type,
+      </if>
+      <if test="updateStatus != null">
+        update_status,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="accountFlag != null">
+        account_flag,
+      </if>
+      <if test="timePoint != null">
+        time_point,
+      </if>
+      <if test="processType != null">
+        process_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uniqueId != null">
+        #{uniqueId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateStatus != null">
+        #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFlag != null">
+        #{accountFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="timePoint != null">
+        #{timePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        #{processType,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="mybatis.beans.DmClientJdFinclip">
+    update dm_client_jd_finclip
+    <set>
+      <if test="uniqueId != null">
+        unique_id = #{uniqueId,jdbcType=VARCHAR},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceType != null">
+        source_type = #{sourceType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateStatus != null">
+        update_status = #{updateStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="accountFlag != null">
+        account_flag = #{accountFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="timePoint != null">
+        time_point = #{timePoint,jdbcType=VARCHAR},
+      </if>
+      <if test="processType != null">
+        process_type = #{processType,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="mybatis.beans.DmClientJdFinclip">
+    update dm_client_jd_finclip
+    set unique_id = #{uniqueId,jdbcType=VARCHAR},
+      open_id = #{openId,jdbcType=VARCHAR},
+      source_type = #{sourceType,jdbcType=VARCHAR},
+      update_status = #{updateStatus,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      account_flag = #{accountFlag,jdbcType=VARCHAR},
+      time_point = #{timePoint,jdbcType=VARCHAR},
+      process_type = #{processType,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
