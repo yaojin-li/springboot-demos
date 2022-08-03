@@ -1,12 +1,11 @@
 # springboot-apollo
 
-### 笔记
+##
 1.Idea 中启动，配置启动参数：
 -Dapollo.configService=http://192.168.100.131:8080 -Denv=DEV
 注：
-    快速构建quick-start官方教程的Apollo默认服务端口为8070；
-    8080为eurka端口，即从eurka中发现注册的Apollo服务；
-
+    Apollo服务端默认端口为8070，即使用http://[apollo部署服务器IP]:8070即可访问Apollo服务；
+    配置启动参数8080为eurka端口，即从eurka中发现注册的Apollo服务；
 
 2.java命令启动：
 java -Dapollo.configService=http://172.190.119.83:8080 -Denv=DEV -jar apollo-demo.jar
