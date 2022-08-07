@@ -12,8 +12,8 @@ app:
 apollo:
   #配置本地配置缓存目录
   cacheDir: /opt/data/
-  # Apollo 配置中心地址
-  meta: http://192.168.100.131:8070
+  # Apollo 配置中心地址：必须是eureka的地址和端口！！！8080端口
+  meta: http://192.168.100.131:8080
   # 是否开启 springboot 参数自动更新
   autoUpdateInjectedSpringProperties: true
   bootstrap:
@@ -24,4 +24,11 @@ apollo:
     # 将 Apollo 加载提到初始化日志系统之前
     eagerLoad:
       enabled: true
+
+
+## 测试配置文件与Apollo配置加载优先级。
+## Apollo > yml
+system:
+  orderConfig: yml_first
+
 
