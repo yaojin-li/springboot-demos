@@ -12,14 +12,18 @@ SpringBoot 学习案例汇总。
 #### springboot-batch
 - 跑批任务；
     - 比较成熟的跑批工具；
-
+    
+    
 #### springboot-db
-    - 每种数据库的config配置；结合Apollo单独配置；（MongoDB，MySql，Oracle，SqlServer）
-    - 通过子模块分割开，每个模式单独配置；
-    - 读写分离；
-    - springboot-datasources
-        - Druid数据源配置、mysql主从、本地mysql数据源、log4j2、自定义注解、AOP、mybatis generator等_
- 
+##### data-source
+- Druid数据源配置、数据库读写分离、本地mysql数据源、自定义 db switch 注解、AOP、mybatis generator；
+##### database
+- 常用数据库配置config，结合Apollo单独配置；
+    - MongoDB，MySql，Oracle，SqlServer
+======== 
+数据库配置config，指定扫描路径与工厂方法；
+
+
 #### springboot-docker
 - docker file 分层构建；
     - docker部署示例；
