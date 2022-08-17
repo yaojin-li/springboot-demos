@@ -5,6 +5,7 @@
     <modules>
         <module>email2</module>
         <module>utils</module>
+        <module>wrapper</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

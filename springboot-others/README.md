@@ -1,6 +1,9 @@
 # springboot-others
 
-#### springboot-jar-war
+### wrapper 部署
+- 配置assembly.xml、wrapper配置文件与启动脚本等。
+
+### springboot-jar-war
 - 测试jar包部署，及Linux上查看或修改jar包配置文件：_  
   1.vim xxx.jar 搜索修改，同Linux修改zip;  
   2.提取修改再覆盖；jar xf / jar uf  
