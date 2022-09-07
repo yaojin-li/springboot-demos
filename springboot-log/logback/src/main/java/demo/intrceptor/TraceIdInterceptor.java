@@ -1,10 +1,10 @@
-package com.example.demo.logTraceId.intrceptor;
+package demo.intrceptor;
 
-import io.micrometer.core.instrument.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.lang.Nullable;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +33,7 @@ public class TraceIdInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String traceIdInHeader = request.getHeader(TRACE_ID);
-        if (StringUtils.isNotBlank(traceIdInHeader)) {
+        if (!StringUtils.isEmpty(traceIdInHeader)) {
             LOGGER.info("上游服务header中traceId为：{}...", traceIdInHeader);
             MDC.put(TRACE_ID, traceIdInHeader);
         } else {
@@ -51,7 +51,7 @@ public class TraceIdInterceptor implements HandlerInterceptor {
 
     public static String createTraceId() {
         String traceId = MDC.get(TRACE_ID);
-        if (StringUtils.isBlank(traceId)) {
+        if (StringUtils.isEmpty(traceId)) {
             traceId = UUID.randomUUID().toString().replaceAll("-", "").toLowerCase();
             LOGGER.info("TraceIdInterceptor create traceId:{}", traceId);
             MDC.put(TRACE_ID, traceId);

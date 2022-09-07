@@ -36,6 +36,7 @@ SpringBoot 学习案例汇总。
 
 #### springboot-log
 - log4j2、lombok、日志切面、方法日志注解；（IDEA本地开发调试配置日志插件 Grep Console）
+- logTraceId 分布式日志链路跟踪；
     - logback 日志配置（性能对比）、不同日志体系对比、日志锚点（分布式系统日志排除问题）、debug模式；
 
 #### springboot-maven

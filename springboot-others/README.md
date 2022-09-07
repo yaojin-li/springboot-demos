@@ -19,4 +19,3 @@
 6. integration 基于redis使用Spring Integration实现分布式锁
 7. elect 多节点选举机制（redis分布式锁、zookeeper选举）
 8. delayedTask 延迟任务（redis、时间轮算法）
-9. logTraceId 分布式日志链路跟踪

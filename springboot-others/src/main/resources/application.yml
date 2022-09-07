@@ -33,7 +33,4 @@ spring:
 #    node:
 #      path: /test/elect
 
-## 测试分布式日志链路跟踪
-logging:
-  config: classpath:logback.xml
 

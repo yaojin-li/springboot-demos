@@ -1,4 +1,4 @@
-package com.example.demo.logTraceId.intrceptor;
+package demo.intrceptor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
