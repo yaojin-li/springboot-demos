@@ -39,6 +39,19 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
+        <!-- TTL 分布式日志追踪依赖 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>2.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0.1-jre</version>
+            <scope>compile</scope>
+        </dependency>
+
 
     </dependencies>
 
