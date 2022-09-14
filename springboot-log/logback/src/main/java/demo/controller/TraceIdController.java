@@ -46,6 +46,10 @@ public class TraceIdController {
     }
 
 
+    /**
+     * 增强线程池测试
+     * 基于Spring的ThreadPoolTaskExecutor
+     */
     @RequestMapping("executor")
     public void executor() {
         TtlThreadPoolTaskExecutor paymentThreadPool = new TtlThreadPoolTaskExecutor();
