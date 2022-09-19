@@ -1,8 +1,5 @@
 # springboot-others
 
-### wrapper 部署
-- 配置assembly.xml、wrapper配置文件与启动脚本等。
-
 ### springboot-jar-war
 - 测试jar包部署，及Linux上查看或修改jar包配置文件：_  
   1.vim xxx.jar 搜索修改，同Linux修改zip;  
@@ -19,3 +16,6 @@
 6. integration 基于redis使用Spring Integration实现分布式锁
 7. elect 多节点选举机制（redis分布式锁、zookeeper选举）
 8. delayedTask 延迟任务（redis、时间轮算法）
+
+
+cmd command  使用 curl xxx 指令代替
