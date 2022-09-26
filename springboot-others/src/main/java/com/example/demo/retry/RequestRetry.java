@@ -28,8 +28,8 @@ public class RequestRetry {
         int retryCount = 1;
         while (retryCount <= MAX_RETRY_COUNT) {
             try {
-                // 数据库操作
-                service.list();
+                // 模拟数据库操作
+//                service.list()
                 break;
             } catch (Exception e) {
                 LOGGER.error(String.format("从数据库第[%s]次[查询数据]异常，异常信息：", retryCount) + e);

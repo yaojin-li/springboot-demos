@@ -103,17 +103,24 @@
             <version>8.0.12</version>
         </dependency>
 
-        <!-- 引入mybatisPlus -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.2.0</version>
-        </dependency>
+        <!--&lt;!&ndash; 引入mybatisPlus &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>mybatis-plus-boot-starter</artifactId>-->
+            <!--<version>3.2.0</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <!-- leaf-starter 唯一id生成 -->
+        <dependency>
+            <artifactId>leaf-boot-starter</artifactId>
+            <groupId>com.sankuai.inf.leaf</groupId>
+            <version>1.0.1-RELEASE</version>
         </dependency>
 
     </dependencies>
